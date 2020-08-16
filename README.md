@@ -1,4 +1,4 @@
-# Ogawa : Hello world
+# Ogawa:Hello world
 
 # README
 
