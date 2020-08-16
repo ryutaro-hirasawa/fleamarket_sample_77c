@@ -2,8 +2,8 @@
 lock '3.14.1'
 
 # 自身のアプリ名、リポジトリ名を記述
-set :application, 'free-market'
-set :repo_url,  'git@github.com:ryutaro-hirasawa/free-market.git'
+set :application, 'fleamarket_sample_77c'
+set :repo_url,  'git@github.com:ryutaro-hirasawa/fleamarket_sample_77c.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
