@@ -102,7 +102,7 @@ belongs_to :item
 |expiration_year|integer|null:false|
 |expiration_month|integer|null:false|
 |security_cpde|integer|null:false|
-|card_number|integer|null:false,unique:true|
+|card_token|string|null:false,unique:true|
 
 ### Association
 belongs_to: user
