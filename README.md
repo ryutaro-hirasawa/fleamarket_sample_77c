@@ -40,10 +40,10 @@ belongs_to :user
 |introduction|text|null:false|
 |price|integer|null:false|
 |brand|text|null:false|
-|item_condition|integer|null:false,foreign_key:true|
-|postage_payer|integer|null:false,foreign_key: true|
-|prefecture_code|integer|null:false|
-|preparation_day|integer|null:false,foreign_key: true|
+|item_condition_id(acitve_hash)|integer|null:false|
+|postage_payer_id(acitve_hash)|integer|null:false|
+|prefecture_code_id(acitve_hash)|integer|null:false|
+|preparation_day_id(acitve_hash)|integer|null:false|
 |category|references|null:false,foreign_key:true|
 |trading_status|integer|
 |seller|references|null:false,foreign_key:true|
@@ -60,6 +60,8 @@ belongs_to :user
 
 |Column|Type|Options|
 |------|----|-------|
+|item|references|null:false,foreign_key:true|
+|url|string|null:false|
 
 ### Association
 belongs_to :item
