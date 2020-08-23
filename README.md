@@ -11,7 +11,6 @@
 ### Association
 has_many :items, dependent: :destroy
 has_many :comments, dependent: :destroy
-has_many :favorites, dependent: :destroy
 has_one :profile, dependent: :destroy
 has_one :sending_destination, dependent: :destroy
 has_one :credit_card, dependent: :destroy
@@ -67,7 +66,7 @@ belongs_to :user
 |city|string|null:false|
 |house_number|string|null:false|
 |building_name|string|
-|phone_number|integer|unique:true|
+|phone_number|string|unique:true|
 |user|references|null:false,foreign_key:true|
 
 ### Association
@@ -99,7 +98,7 @@ belongs_to :item
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false|
+|user_id|references|null:false,foreign_key:true|
 |expiration_year|integer|null:false|
 |expiration_month|integer|null:false|
 |security_cpde|integer|null:false|
