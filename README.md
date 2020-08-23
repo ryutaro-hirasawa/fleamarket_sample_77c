@@ -99,9 +99,6 @@ belongs_to :item
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false,foreign_key:true|
-|expiration_year|integer|null:false|
-|expiration_month|integer|null:false|
-|security_cpde|integer|null:false|
 |card_token|string|null:false,unique:true|
 
 ### Association
