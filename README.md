@@ -54,6 +54,17 @@ has_many :item_imgs, dependent: :destroy
 belongs_to :category
 belongs_to :user
 
+### purchased_itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false,foreign_key:true|
+|item_id|references|null:false,foreign_key:true|
+
+### Association
+belongs_to :user
+belongs_to :item
+
 ### sending_destinationsテーブル
 |Column|Type|Options|
 |------|----|-------|
