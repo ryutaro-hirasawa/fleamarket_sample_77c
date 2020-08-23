@@ -100,8 +100,10 @@ belongs_to :item
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null:false|
-|customer_id|string|null:false|
-|card_id|string|null:false|
+|expiration_year|integer|null:false|
+|expiration_month|integer|null:false|
+|security_cpde|integer|null:false|
+|card_number|integer|null:false,unique:true|
 
 ### Association
 belongs_to: user
