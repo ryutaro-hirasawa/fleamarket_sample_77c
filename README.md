@@ -99,6 +99,7 @@ belongs_to :item
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false,foreign_key:true|
+|customer_id|string|null:false|
 |card_token|string|null:false,unique:true|
 
 ### Association
