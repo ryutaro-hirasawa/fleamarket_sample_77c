@@ -66,7 +66,7 @@ belongs_to :user
 ### Association
 belongs_to :item
 
-## commentssテーブル
+## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
