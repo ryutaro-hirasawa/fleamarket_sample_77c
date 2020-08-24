@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
   validates :first_name,:family_name,:first_name_kana,:family_name_kana,:birth_day, presence: true
+  has_one :sending_destination
 end
