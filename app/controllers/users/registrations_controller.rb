@@ -22,6 +22,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_sending_destinations
   end
 
+  def create_sending_destinations
+    @user = User.new(session["devise.regist_data"]["user"])
+    @sending_destinations = SendingDestination.new(sending_destinations_params)
+    unless @sending_destinations.valid?
+      flash.now[:alert] = @sending_destinations.errors.full_messages
+      render :new_sending_destinations and return
+    end
+    @user.build_sending_destination(@sending_destinations.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -47,6 +60,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
+  def sending_destinations_params
+    params.require(:sending_destination).permit(:post_code, :prefecture_code, :city, :house_number, :building_name, :phone_number)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
