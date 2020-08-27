@@ -2,29 +2,39 @@
 = form_for @sending_destinations do |f|
   = render "devise/shared/error_messages", resource: @sending_destinations
   .field
-    = f.label :post_code
+    = f.label :郵便番号
+    ＊必須
     %br/
     = f.text_field :post_code
+
   .field
-    = f.label :prefecture_code
+    = f.label :都道府県
+    ＊必須
     %br/
     = f.collection_select :prefecture_code, Prefecture.all, :id, :name
+  
   .field
-    = f.label :city
+    = f.label :市区町村
+    ＊必須
     %br/
     = f.text_field :city
+  
   .field
-    = f.label :house_number
+    = f.label :番地
+    ＊必須
     %br/
     = f.text_field :house_number
+  
   .field
-    = f.label :building_name
+    = f.label :ビル・マンション名と部屋番号
     %br/
     = f.text_field :building_name
+  
   .field
-    = f.label :phone_number
+    = f.label :電話番号
     %br/
     = f.text_field :phone_number
+  
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
