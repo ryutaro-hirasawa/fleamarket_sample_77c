@@ -1,44 +1,48 @@
-.Logo
-  = link_to root_path do
-    = image_tag "logo.png", height: '36', width: '134'
+.head
+  %header.header
+    %h1.header__logo
+      =link_to root_path do
+        =image_tag "logo.png",width:"214",height:"62"
 
-%h2 住所情報登録
-= form_for @sending_destinations do |f|
-  = render "devise/shared/error_messages", resource: @sending_destinations
-  .field
-    = f.label :郵便番号
-    ＊必須
-    %br/
-    = f.text_field :post_code, placeholder: "例) 1234567"
+.main
+  ._form
+    %h2 住所情報登録
+    = form_for @sending_destinations do |f|
+      = render "devise/shared/error_messages", resource: @sending_destinations
+      .field
+        = f.label :郵便番号
+        ＊必須
+        %br/
+        = f.text_field :post_code, placeholder: "例) 1234567"
 
-  .field
-    = f.label :都道府県
-    ＊必須
-    %br/
-    = f.collection_select :prefecture_code, Prefecture.all, :id, :name
-  
-  .field
-    = f.label :市区町村
-    ＊必須
-    %br/
-    = f.text_field :city,placeholder: "例) 大阪市北区〇〇"
-  
-  .field
-    = f.label :番地
-    ＊必須
-    %br/
-    = f.text_field :house_number,placeholder: "例) 1-1-1"
-  
-  .field
-    = f.label :ビル・マンション名と部屋番号
-    %br/
-    = f.text_field :building_name,placeholder: "例) 〇〇マンション203"
-  
-  .field
-    = f.label :電話番号
-    %br/
-    = f.text_field :phone_number,placeholder: "例) 09077773333"
-  
-  .actions
-    = f.submit "登録"
+      .field
+        = f.label :都道府県
+        ＊必須
+        %br/
+        = f.collection_select :prefecture_code, Prefecture.all, :id, :name
+      
+      .field
+        = f.label :市区町村
+        ＊必須
+        %br/
+        = f.text_field :city,placeholder: "例) 大阪市北区〇〇"
+      
+      .field
+        = f.label :番地
+        ＊必須
+        %br/
+        = f.text_field :house_number,placeholder: "例) 1-1-1"
+      
+      .field
+        = f.label :ビル・マンション名と部屋番号
+        %br/
+        = f.text_field :building_name,placeholder: "例) 〇〇マンション203"
+      
+      .field
+        = f.label :電話番号
+        %br/
+        = f.text_field :phone_number,placeholder: "例) 09077773333"
+      
+      .actions
+        = f.submit "登録"
 
