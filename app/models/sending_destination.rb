@@ -9,6 +9,6 @@ class SendingDestination < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :city, presence: true
   validates :house_number, presence: true
-  validates :building_name, presence: true
+  # validates :building_name, presence: true
   validates :phone_number, presence: true, format: { with: VALID_Phone_REGEX }
 end
