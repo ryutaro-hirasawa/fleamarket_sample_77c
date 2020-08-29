@@ -11,38 +11,38 @@
       = render "devise/shared/error_messages", resource: @sending_destinations
       .field
         = f.label :郵便番号
-        ＊必須
+        %span.form-group__require ＊必須
         %br/
-        = f.text_field :post_code, placeholder: "例) 1234567"
+        = f.text_field :post_code, placeholder: "例) 1234567",class:'form-group__input'
 
       .field
         = f.label :都道府県
-        ＊必須
+        %span.form-group__require ＊必須
         %br/
         = f.collection_select :prefecture_code, Prefecture.all, :id, :name
       
       .field
         = f.label :市区町村
-        ＊必須
+        %span.form-group__require ＊必須
         %br/
-        = f.text_field :city,placeholder: "例) 大阪市北区〇〇"
+        = f.text_field :city,placeholder: "例) 大阪市北区〇〇",class:'form-group__input'
       
       .field
         = f.label :番地
-        ＊必須
+        %span.form-group__require ＊必須
         %br/
-        = f.text_field :house_number,placeholder: "例) 1-1-1"
+        = f.text_field :house_number,placeholder: "例) 1-1-1",class:'form-group__input'
       
       .field
         = f.label :ビル・マンション名と部屋番号
         %br/
-        = f.text_field :building_name,placeholder: "例) 〇〇マンション203"
+        = f.text_field :building_name,placeholder: "例) 〇〇マンション203",class:'form-group__input'
       
       .field
         = f.label :電話番号
         %br/
-        = f.text_field :phone_number,placeholder: "例) 09077773333"
+        = f.text_field :phone_number,placeholder: "例) 09077773333",class:'form-group__input'
       
       .actions
-        = f.submit "登録"
+        = f.submit "登録",class:'user__main__form__contents__submit__btn'
 
