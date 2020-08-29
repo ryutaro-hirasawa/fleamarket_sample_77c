@@ -1,0 +1,27 @@
+.head
+  %header.header
+    %h1.header__logo
+      =link_to root_path do
+        =image_tag "logo.png",width:"214",height:"62"
+
+.main
+  ._form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :メールアドレス
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email",class:'form-group__input'
+      .field
+        = f.label :パスワード
+        %br/
+        = f.password_field :password, autocomplete: "current-password",class:'form-group__input'
+      .actions
+        = f.submit "ログイン",class:'user__main__form__contents__submit__btn'
+      %br/
+    アカウントをお持ちでない方はこちら
+    .btn_sign_up
+      %a{:href => "/users/sign_up", class:'sign_up'} 新規会員登録
+      %br/
+    .btn_forget_password
+      ＊パスワードを忘れた方は
+      %a{:href => "/users/password/new", class:'forget_password'} こちら
