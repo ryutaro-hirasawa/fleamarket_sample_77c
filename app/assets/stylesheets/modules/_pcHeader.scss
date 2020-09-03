@@ -48,6 +48,32 @@
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
+      .listsLeft {
+        position: relative;
+        display: flex;
+        .listsLeft__item.listsLeft__item--first {
+          text-decoration: none;
+          padding: 0;
+          .listsLeft__item a {
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 30px;
+          }
+        }
+        .listsLeft__item {
+          display: flex;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+        }
+      }
+      .listsRight {
+        margin-left: auto;
+        display: flex;
+      }
     }
   }
 }

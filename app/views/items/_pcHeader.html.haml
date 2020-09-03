@@ -2,15 +2,15 @@
   .headerInner
     .mainHeader
       %h1.icon
-        %a{:href => "/"}
-          %img{:src => "/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"}/
+        =link_to root_path do
+          =image_tag "logo.png",width:"140",height:"40.55"
       .searchBox
-        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-          %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
-          %button{:type => "submit"}
-            .searchBox__icon
-              %img{:src => "/assets/icon-search-60a83ada85216fe00789cd16065281694d9a08948275fef83683fadcf131d84d.svg"}/
+        = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+          = button_tag type: "submit", class: "search-btn" do
+
+              .searchBox__icon
+              =image_tag "icon-search 1",width:"19.72",height:"19.72"
           %input{:name => "authenticity_token", :type => "hidden", :value => "k4TXJVuVBVyuGjPLtgQbbZthp/BHG7nFz0J+dLohlK9FaChUqE3VEeh1g/9AEgIujMgABXuDfNiAwJGMX8nvNw=="}/
       %ul.resultLists
     .nav
