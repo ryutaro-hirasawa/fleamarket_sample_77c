@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .ItemNew__Box {
   width: 100wv;
   height: 2000px;
@@ -11,19 +13,35 @@
     width: 100wv;
     height: 100px;
     background-color: rgb(245, 245, 245);
-    /* position: relative; */
-
-    .Logo-Box img {
-      padding-top: 35px;
+    position: relative;
+  }
+  .Logo-Box {
+      /*margin: 35px auto 0px;*/
+      /*padding-top: 35px;
       display: block;
+      padding-left: 610;*/
+      /*display: block;
       margin-left: auto;
-      margin-right: auto;
-      /* position: absolute; */
-      /* margin-top: 10px; */
-      
+      margin-right: auto*/
+      /*margin: 0px auto;*/
+      box-sizing: border-box;
+      height: 128px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
     }
 
-  }
+    a {
+      display: block;
+      height: 46px;
+      width: 144px;
+    }
+
+    img {
+      padding-left: 0;
+      padding-top: 0;
+    }
+  
 
   .ItemNew-Maim {
     width: 600px;
@@ -33,11 +51,11 @@
   }
   .ItemNew-Center {
       width: 600px;
-      height: 1600px;
+      height: 1650px;
       padding: 50px 30px 50px 30px;
       background-color: white;
 
-  }
+  
     .ItemEntry {
       padding-top: 50px;
       &__text {
@@ -60,7 +78,7 @@
       padding-top: 50px;
       color: gray;
     }
-
+  }
   .ItemNew-Img {
     width: 600px;
     height: 140px;
@@ -75,7 +93,7 @@
     width: 600px;
     height: 140px;
   }
-  #item_category {
+  .ItemNew-category {
     width: 600px;
     height: 40px;
   }
@@ -83,7 +101,7 @@
     width: 600px;
     height: 30px;
   }
-  #item_item_condition_id {
+  #Item\.new_item_condition_id {
     width: 600px;
     height: 40px;
   }
@@ -113,8 +131,12 @@
     line-height: 20px;
     margin: 50px 150px 0;
   }
-  .Return-btn {
+  %a.Return-btn {
     margin-top: 30px;
     text-align: center;
+    a {
+      text-align: center;
+    }
   }
+  
 }

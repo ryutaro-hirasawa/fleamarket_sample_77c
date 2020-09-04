@@ -4,7 +4,7 @@
 
     .Logo-Box
       = link_to root_path do
-        = image_tag 'logo.png', height: '36', width: '134'
+        = image_tag 'logo.png', height: '36', width: '134' 
 
   .ItemNew-Maim
 
@@ -37,7 +37,8 @@
         .ItemEntry
           %h.ItemEntry__text カテゴリー
           %span.ItemEntry__require 必須
-        = f.select :category, ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チェット", "自転車・オートバイ", "その他"], prompt: '選択してください', class:'ItemNew-Category'
+        .ItemNew-category
+        = f.select :category, ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チェット", "自転車・オートバイ", "その他"], prompt: '選択してください', class: 'ItemNew-category'
 
         .ItemEntry
           %h.ItemEntry__text ブランド
@@ -47,7 +48,7 @@
         .ItemEntry
           %h.ItemEntry__text 商品の状態
           %span.ItemEntry__require 必須
-        = f.select :item_condition_id, [["新品・未使用", "1"], ["未使用に近い", "2"], ["目立った傷や汚れなし", "3"], ["やや傷や汚れあり", "4"], ["傷や汚れあり", "5"], ["全体的に状態が悪い", "6"]], prompt: '選択してください', id: 'item_item_condition_id'
+        = f.select :item_condition_id, [["新品・未使用", "1"], ["未使用に近い", "2"], ["目立った傷や汚れなし", "3"], ["やや傷や汚れあり", "4"], ["傷や汚れあり", "5"], ["全体的に状態が悪い", "6"]], prompt: '選択してください', id:'Item.new_item_condition_id'
 
         .p 発送について
 
@@ -79,3 +80,9 @@
 
         .Return-btn
           = link_to 'もどる', root_path, class: 'Return-btn'
+
+  .ItemNew__Hooter
+
+    .Logo-Box
+      = link_to root_path do
+        = image_tag 'logo.png', height: '36', width: '134'
