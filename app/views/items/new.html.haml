@@ -1,0 +1,88 @@
+.ItemNew__Box
+
+  .ItemNew__Header
+
+    .Logo-Box
+      = link_to root_path do
+        = image_tag 'logo.png', height: '36', width: '134' 
+
+  .ItemNew-Maim
+
+    .ItemNew-Center
+      = form_for(@item, url: root_path) do |f|
+        .ItemEntry
+          %h.ItemEntry__text 商品画像
+          %span.ItemEntry__require 必須
+          %br
+          最大3枚までアップロードできます
+
+        .ItemNew-Img
+          =f.label :image, class: 'ItemNew-Img' do
+            = icon('far', 'image', class: 'ItemNew-Img__icon')
+            = f.file_field :image, class: 'Hidden'
+          -#= f.label :image, {placeholder: '選択してください', class:'ItemNew-Img'}
+
+        .ItemEntry
+          %h.ItemEntry__text 商品名
+          %span.ItemEntry__require 必須
+        = f.text_field :name, {placeholder: '入力してください', class:'ItemNew-name'}
+
+        .ItemEntry
+          %h.ItemEntry__text 商品の説明
+          %span.ItemEntry__require 必須
+        = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction'}
+
+        .p 商品の詳細
+
+        .ItemEntry
+          %h.ItemEntry__text カテゴリー
+          %span.ItemEntry__require 必須
+        .ItemNew-category
+        = f.select :category, ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チェット", "自転車・オートバイ", "その他"], prompt: '選択してください', class: 'ItemNew-category'
+
+        .ItemEntry
+          %h.ItemEntry__text ブランド
+          %span.ItemEntry__option 任意
+        = f.text_field :brand, {placeholder: '入力してください', class:'ItemNew-Brand'}
+
+        .ItemEntry
+          %h.ItemEntry__text 商品の状態
+          %span.ItemEntry__require 必須
+        = f.select :item_condition_id, [["新品・未使用", "1"], ["未使用に近い", "2"], ["目立った傷や汚れなし", "3"], ["やや傷や汚れあり", "4"], ["傷や汚れあり", "5"], ["全体的に状態が悪い", "6"]], prompt: '選択してください', id:'Item.new_item_condition_id'
+
+        .p 発送について
+
+        .ItemEntry
+          %h.ItemEntry__text 配送料の負担
+          %span.ItemEntry__require 必須
+        = f.select :postage_payer_id, [["送料込み(出品者負担)", "1"], ["着払い(購入者負担)", "2"]], id: 'item_postage_payer_id'
+
+        .ItemEntry
+          %h.ItemEntry__text 発送元の地域
+          %span.ItemEntry__require 必須
+        = f.select :prefecture_code_id, [["北海道", "1"], ["青森県", "2"]], id: 'item_prefecture_code_id'
+        -#= f.select :prefecture, self.data.keys, {prompt: '選択してください'}, class: 'ItemNew-prefecture_code_id'
+
+        .ItemEntry
+          %h.ItemEntry__text 発送までの日数
+          %span.ItemEntry__require 必須
+        = f.select :preparation_day_id, [["1~2日で発送", "1"], ["2~3日で発送", "2"], ["4~7日で発送", "3"]], id: 'item_preparation_day_id'
+
+        .p 価格(¥9,999,999,999)
+        .ItemEntry-price
+          %h.ItemEntry__text 販売価格
+          %span.ItemEntry__require 必須
+        ¥
+        = f.text_field :price, {placeholder: '0', class:'ItemNew-price'}
+
+        .actions
+          = f.submit '出品する', class: 'Submit-btn'
+
+        .Return-btn
+          = link_to 'もどる', root_path, class: 'Return-btn'
+
+  .ItemNew__Hooter
+
+    .Logo-Box
+      = link_to root_path do
+        = image_tag 'logo.png', height: '36', width: '134'

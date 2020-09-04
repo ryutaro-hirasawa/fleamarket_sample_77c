@@ -1,3 +1,142 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.ItemNew__Box {
+  width: 100wv;
+  height: 2000px;
+  background-color: rgb(245, 245, 245);
+
+  .ItemNew__Header {
+    width: 100wv;
+    height: 100px;
+    background-color: rgb(245, 245, 245);
+    position: relative;
+  }
+  .Logo-Box {
+      /*margin: 35px auto 0px;*/
+      /*padding-top: 35px;
+      display: block;
+      padding-left: 610;*/
+      /*display: block;
+      margin-left: auto;
+      margin-right: auto*/
+      /*margin: 0px auto;*/
+      box-sizing: border-box;
+      height: 128px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    a {
+      display: block;
+      height: 46px;
+      width: 144px;
+    }
+
+    img {
+      padding-left: 0;
+      padding-top: 0;
+    }
+  
+
+  .ItemNew-Maim {
+    width: 600px;
+    height: 1800px;
+    /* background-color: gray; */
+    margin: 0px auto;
+  }
+  .ItemNew-Center {
+      width: 600px;
+      height: 1650px;
+      padding: 50px 30px 50px 30px;
+      background-color: white;
+
+  
+    .ItemEntry {
+      padding-top: 50px;
+      &__text {
+      }
+      &__require {
+        background-color: red;
+        color: white;
+      }
+      &__option {
+        background-color: gray;
+        color: white;
+      }
+    }
+
+    .ItemEntry-price {
+      padding-top: 20px;
+    }
+
+    .p {
+      padding-top: 50px;
+      color: gray;
+    }
+  }
+  .ItemNew-Img {
+    width: 600px;
+    height: 140px;
+    background-color: rgb(245, 245, 245);
+    /*display: none;*/
+  }
+  .ItemNew-name {
+    width: 600px;
+    height: 30px;
+  }
+  .ItemNew-introduction {
+    width: 600px;
+    height: 140px;
+  }
+  .ItemNew-category {
+    width: 600px;
+    height: 40px;
+  }
+  .ItemNew-Brand {
+    width: 600px;
+    height: 30px;
+  }
+  #Item\.new_item_condition_id {
+    width: 600px;
+    height: 40px;
+  }
+  #item_postage_payer_id {
+    width: 600px;
+    height: 40px;
+  }
+  #item_prefecture_code_id {
+    width: 600px;
+    height: 40px;
+  }
+  #item_preparation_day_id {
+    width: 600px;
+    height: 40px;
+  }
+  .ItemNew-price {
+    width: 570px;
+    height: 40px;
+    text-align: right;
+    font-size: 20px;
+  }
+  .Submit-btn {
+    width: 300px;
+    height: 40px;
+    color: white;
+    background-color: #3ccace;
+    line-height: 20px;
+    margin: 50px 150px 0;
+  }
+  %a.Return-btn {
+    margin-top: 30px;
+    text-align: center;
+    a {
+      text-align: center;
+    }
+  }
+  
+}
