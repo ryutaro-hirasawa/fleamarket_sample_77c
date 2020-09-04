@@ -1,0 +1,43 @@
+.appBanner{
+  width: 100vw;
+  height: 359px;
+  background-image: url(https://i.gyazo.com/5ca2031fccca0530aedab0cafe14a321.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.inner{
+  text-align: center;
+  color: #ffffff;
+  padding-top: 80px;
+    
+    &__title{
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1.8;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__text{
+      font-size: 35px;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+
+    &__icon{
+      margin-left: 20px;
+      padding-top: 15px;
+      padding-right: 30px;
+      display: flex;
+      justify-content: center;
+    }
+}
+
+.linkIcon.aBtn{
+  height: 53px;
+  width: 180px;
+}
+
+.linkIcon.gBtn{
+  height: 53px;
+  width: 180px;
+}
