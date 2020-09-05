@@ -1,5 +1,5 @@
 .appBanner{
-  background-image: url(https://i.gyazo.com/5ca2031fccca0530aedab0cafe14a321.jpg);
+  background-image: url(/assets/bg-appBanner-pict.jpg);
   padding: 100px 40px;
   position: relative;
   background-size: cover;
@@ -20,10 +20,7 @@
       }
   
       &__icon{
-        // margin-left: 20px;
         padding-top: 15px;
-        // padding-right: 30px;
-        // display: flex;
         justify-content: center;
         .linkIcon.aBtn{
           height: 53px;
