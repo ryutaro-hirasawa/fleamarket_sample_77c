@@ -1,43 +1,41 @@
 .appBanner{
-  width: 100vw;
-  height: 359px;
   background-image: url(https://i.gyazo.com/5ca2031fccca0530aedab0cafe14a321.jpg);
+  padding: 100px 40px;
+  position: relative;
   background-size: cover;
   background-position: center;
-}
-
-.inner{
-  text-align: center;
-  color: #ffffff;
-  padding-top: 80px;
-    
-    &__title{
-      font-size: 25px;
-      font-weight: bold;
-      line-height: 1.8;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-    &__text{
-      font-size: 35px;
-      font-weight: bold;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-
-    &__icon{
-      margin-left: 20px;
-      padding-top: 15px;
-      padding-right: 30px;
-      display: flex;
-      justify-content: center;
-    }
-}
-
-.linkIcon.aBtn{
-  height: 53px;
-  width: 180px;
-}
-
-.linkIcon.gBtn{
-  height: 53px;
-  width: 180px;
+  .inner{
+    text-align: center;
+    color: #ffffff;
+      
+      &__title{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      &__text{
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+  
+      &__icon{
+        // margin-left: 20px;
+        padding-top: 15px;
+        // padding-right: 30px;
+        // display: flex;
+        justify-content: center;
+        .linkIcon.aBtn{
+          height: 53px;
+          width: 180px;
+          margin-right: 5px;
+        }
+        
+        .linkIcon.gBtn{
+          height: 53px;
+          width: 180px;
+          margin-left: 5px;
+        }
+      }
+  }
 }
