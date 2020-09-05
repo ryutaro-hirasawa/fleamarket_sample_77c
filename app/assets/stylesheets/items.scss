@@ -101,22 +101,27 @@
     width: 600px;
     height: 30px;
   }
-  #Item\.new_item_condition_id {
+
+  select{
     width: 600px;
     height: 40px;
   }
-  #item_postage_payer_id {
-    width: 600px;
-    height: 40px;
-  }
-  #item_prefecture_code_id {
-    width: 600px;
-    height: 40px;
-  }
-  #item_preparation_day_id {
-    width: 600px;
-    height: 40px;
-  }
+  // #Item\.new_item_condition_id {
+  //   width: 600px;
+  //   height: 40px;
+  // }
+  // #item_postage_payer_id {
+  //   width: 600px;
+  //   height: 40px;
+  // }
+  // #item_prefecture_code_id {
+  //   width: 600px;
+  //   height: 40px;
+  // }
+  // #item_preparation_day_id {
+  //   width: 600px;
+  //   height: 40px;
+  // }
   .ItemNew-price {
     width: 570px;
     height: 40px;
@@ -131,12 +136,16 @@
     line-height: 20px;
     margin: 50px 150px 0;
   }
-  %a.Return-btn {
-    margin-top: 30px;
+  .Return-btn {
+    margin-top: 15px;
+    margin-left: 110px;
     text-align: center;
-    a {
-      text-align: center;
-    }
+    // text-decoration: none;
+    color: black;
+    // a {
+    //   text-align: center;
+    // }
   }
   
 }
+
