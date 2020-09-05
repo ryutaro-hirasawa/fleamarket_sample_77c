@@ -5,12 +5,12 @@
 
 
 .ItemNew__Box {
-  width: 100wv;
+  width: 100vw;
   height: 2000px;
   background-color: rgb(245, 245, 245);
 
   .ItemNew__Header {
-    width: 100wv;
+    width: 100vw;
     height: 100px;
     background-color: rgb(245, 245, 245);
     position: relative;
@@ -58,8 +58,8 @@
   
     .ItemEntry {
       padding-top: 50px;
-      &__text {
-      }
+      // &__text {
+      // }
       &__require {
         background-color: red;
         color: white;
