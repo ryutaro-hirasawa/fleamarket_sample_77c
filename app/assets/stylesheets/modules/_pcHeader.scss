@@ -56,17 +56,12 @@
           background-color: #fff;
           text-decoration: none;
           line-height: 40px;
-          background-position: center right;
-          background-repeat: no-repeat;
-          background-size: 18px;
           padding-right: 30px;
           &:hover {
             color: #ffd340;
           }
         }
         &__category {
-          display: flex;
-          padding: 0;
           &:hover {
             ul.listsLeft__category__parents {
               li {
@@ -86,7 +81,7 @@
           ul.listsLeft__category__parents {
             z-index: 2;
             position: absolute;
-            top: 41px;
+            top: 40px;
             li {
               display: flex;
               flex-direction: column;
