@@ -229,58 +229,63 @@
         a {
           text-decoration: none;
           position: relative;
+          cursor: pointer;
+          display: block;
+          &:hover {
+            filter: opacity(0.4);
+          }
         }
-          .productList {
-            width: 220px;
+        .productList {
+          width: 220px;
+          display: inline-block;
+          a {
+            background-color: #fff;
             display: inline-block;
-            float: left;
-            a {
-              background-color: #fff;
-              display: inline-block;
-              .productList--img {
-                width: 220px;
-                height: 150px;
-                position: relative;
+            .productList--img {
+              width: 220px;
+              height: 150px;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              z-index: auto;
+              object-fit: cover;
+            }
+            .productList--body {
+              background-color: white;
+              color: #333;
+              padding: 16px;
+              .name {
                 overflow: hidden;
-                margin: 0;
-                z-index: auto;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: left;
               }
-              .productList--body {
-                background-color: white;
-                color: #333;
-                padding: 16px;
-                .name {
-                  overflow: hidden;
-                  line-height: 1.5;
-                  font-size: 16px;
-                  text-align: left;
-                }
-                .details {
-                  font-size: 16px;
-                  ul {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    li > .fa {
-                      display: inline-block;
-                      font: normal normal normal 14px/1 FontAwesome;
-                      font-size: inherit;
-                      text-rendering: auto;
-                      -webkit-font-smoothing: antialiased;
-                      -moz-osx-font-smoothing: grayscale;
-                      .fa-star:before {
-                        content: "\f005";
-                      }
+              .details {
+                font-size: 16px;
+                ul {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  li > .fa {
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    .fa-star:before {
+                      content: "\f005";
                     }
                   }
-                  p {
-                    font-size: 10px;
-                    text-align: left;
-                  }
-                }            
-              }
+                }
+                p {
+                  font-size: 10px;
+                  text-align: left;
+                }
+              }            
             }
           }
+        }
       }
     }
   }
