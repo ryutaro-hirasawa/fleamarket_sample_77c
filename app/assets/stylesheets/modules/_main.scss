@@ -3,7 +3,7 @@
   .mainVisual {
     width: 100%;
     height: 560px;
-    background-image: url(/assets/bg-mainVisual-pict_pc-a1a4be0….jpg);
+    background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -32,11 +32,8 @@
       &__btn {
         display: flex;
         margin: 24px 0 0 0;
-        .aBtn {
-          width: 180px;
-        }
-        .gBtn {
-          width: 180px;
+        a {
+          margin-right: 10px;
         }
       }
     }
@@ -118,7 +115,7 @@
     }
   }
   .topMiddleDl {
-    background-image: url(/assets/bg-topMiddleDl-pict-5042a3a….jpg);
+    background-image: url(/assets/bg-topMiddleDl-pict.jpg);
     background-position: bottom right;
     height: 400px;
     background-size: cover;
@@ -229,57 +226,61 @@
         margin: 26px auto;
         display: flex;
         justify-content: space-around;
-        .productList {
-          width: 220px;
-          display: inline-block;
-          float: left;
-          a {
-            background-color: #fff;
+        a {
+          text-decoration: none;
+          position: relative;
+        }
+          .productList {
+            width: 220px;
             display: inline-block;
-            &--img {
-              width: 220px;
-              height: 150px;
-              position: relative;
-              overflow: hidden;
-              margin: 0;
-              z-index: auto;
-            }
-            &--body {
-              background-color: white;
-              color: #333;
-              padding: 16px;
-              .name {
+            float: left;
+            a {
+              background-color: #fff;
+              display: inline-block;
+              .productList--img {
+                width: 220px;
+                height: 150px;
+                position: relative;
                 overflow: hidden;
-                line-height: 1.5;
-                font-size: 16px;
-                text-align: left;
+                margin: 0;
+                z-index: auto;
               }
-              .details {
-                font-size: 16px;
-                ul {
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  .fa {
-                    display: inline-block;
-                    font: normal normal normal 14px/1 FontAwesome;
-                    font-size: inherit;
-                    text-rendering: auto;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
-                    .fa-star:before {
-                      content: "\f005";
-                    }
-                  }
-                }
-                p {
-                  font-size: 10px;
+              .productList--body {
+                background-color: white;
+                color: #333;
+                padding: 16px;
+                .name {
+                  overflow: hidden;
+                  line-height: 1.5;
+                  font-size: 16px;
                   text-align: left;
                 }
-              }            
+                .details {
+                  font-size: 16px;
+                  ul {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    li > .fa {
+                      display: inline-block;
+                      font: normal normal normal 14px/1 FontAwesome;
+                      font-size: inherit;
+                      text-rendering: auto;
+                      -webkit-font-smoothing: antialiased;
+                      -moz-osx-font-smoothing: grayscale;
+                      .fa-star:before {
+                        content: "\f005";
+                      }
+                    }
+                  }
+                  p {
+                    font-size: 10px;
+                    text-align: left;
+                  }
+                }            
+              }
             }
           }
-        }
       }
     }
   }
@@ -288,4 +289,11 @@
 img {
   width: 100%;
   vertical-align: bottom;
+}
+
+.aBtn {
+  width: 180px;
+}
+.gBtn {
+  width: 180px;
 }
