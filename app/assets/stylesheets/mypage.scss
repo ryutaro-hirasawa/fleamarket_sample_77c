@@ -97,12 +97,11 @@ span {
 
 .productLists {
   display: flex;
+  
   .productList {
     width: 33%;
     margin-left: 5px;
-    :hover {
-      filter: drop-shadow(1.8);
-    }
+  
     .productList--img {
       width: 100%;
       margin-left: 0px;
