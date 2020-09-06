@@ -1,0 +1,50 @@
+.l_content
+  .mypage-user-icon
+    %a{:href => "#"}
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", width: "60", height: "60",class: 'myimage'
+      %a.bold 阿部
+      .mypage-number
+        %a
+          評価
+          %span.bold 0
+        %a
+          出品数
+          %span.bold 0
+  %ul.mypage-tabs
+    %li.active
+      %h3
+        %a{:href => "#"} 最近出品した商品
+  .productLists
+    .productList
+      %a{:href => "#"}
+        %figure.productList--img
+          = image_tag "sava.png", class:'product'
+        .productList--body
+          %a.name product1
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
+    .productList
+      %a{:href => "#"}
+        %figure.productList--img
+          = image_tag "sava.png", class:'product'
+        .productList--body
+          %a.name product1
+          .details
+            %ul.yen
+              %li 3000円
+              %i.fa_star
+            %p.tax （税込み）
+    .productList
+      %a{:href => "#"}
+        %figure.productList--img
+          = image_tag "sava.png", class:'product'
+        .productList--body
+          %a.name product1
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
+      

@@ -1,0 +1,106 @@
+.l_content {
+  width: 100;
+  height: 650px;
+  width: 700px;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: white;
+}
+
+.mypage-user-icon {
+  position: relative;
+  height: 155px;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  background-image: url(image-path("bubble.jpg"))
+}
+
+
+
+.bold {
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+}
+
+
+
+.mypage-number {
+  margin: 8px 0 0;
+  color: black;
+  text-decoration: none;
+}
+
+span {
+  margin: 0 0 0 8px;
+  font-size: 16px;
+}
+
+.mypage-tabs {
+  background: #eee;
+  width: 100%;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.active {
+  background-color: #ffffff;
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 35px;
+    text-decoration: none;
+    padding-left: 15px;
+  }
+
+}
+
+.productLists {
+  display: flex;
+  .productList {
+    width: 33%;
+    margin-left: 5px;
+    .productList--img {
+      width: 100%;
+      margin-left: 0px;
+      .product {
+        background-color: white;
+        width: 100%;
+        margin-left: 0px;
+      }
+    }
+    .productList--body {
+      background-color: white;
+      width: 100%;
+      color: #333;
+      margin-left: 0px;
+      .name {
+        text-decoration: none;
+      }
+      .yen {
+        margin-top: 5px;
+        margin-bottom: 0px;
+        padding-left: 0px;
+        list-style: none;
+      }
+      .tax {
+      margin-top: 0px;
+      margin-bottom: 5px;
+      font-size: 10px;
+      }
+    }
+  }
+}
+
+
+
+
+
