@@ -1,10 +1,32 @@
-.l_content {
-  width: 100;
+.mypage {
+  display: flex;
+  background-color: #f8f8f8;
+  padding-top: 40px;
+  .sidemenu {
+    background-color: #ffffff;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    font-weight: 200;
+    color: #333;
+    border-bottom: 1px solid #f8f8f8;
+    padding: 16px;
+    text-decoration: none;
+    &:hover {
+      background-color: #3CCACE;
+    }
+  }
+  .mypage-nav-head {
+    font-weight: 800;
+    margin-top: 47px;
+  }
+}
+
+.l-side {
+  width: 280px;
   height: 650px;
-  width: 700px;
-  font-size: 14px;
-  font-weight: 400;
-  background-color: white;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .mypage-user-icon {
@@ -61,8 +83,16 @@ span {
     line-height: 35px;
     text-decoration: none;
     padding-left: 15px;
+    font-weight: bold;
   }
 
+}
+
+.l_content {
+  width: 900px;
+  height: 640px;
+  background-color: white;
+  margin-left: 50px;
 }
 
 .productLists {
@@ -102,7 +132,3 @@ span {
   }
 }
 
-.l-side {
-  width: 280px;
-  height: 734px;
-}
