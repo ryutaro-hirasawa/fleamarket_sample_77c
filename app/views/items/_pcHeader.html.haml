@@ -13,16 +13,16 @@
     .nav
       %ul.listsLeft
         %li.listsLeft__category
-          %a{href: ""}カテゴリー
+          =link_to  "カテゴリー"
           %ul.listsLeft__category__parents
             %li
-              %a{href: ""}レディース
+              =link_to  "レディース"
               %ul.listsLeft__category__children
                 %li
-                  %a{href: ""}トップス
+                  =link_to  "トップス"
                   %ul.listsLeft__category__grandchildren
                     %li
-                      %a{href: ""}Tシャツ/カットソー(半袖/袖なし)
+                      =link_to  "Tシャツ/カットソー(半袖/袖なし)"
         %li.listsLeft__bland
           = link_to "#" do
             ブランド

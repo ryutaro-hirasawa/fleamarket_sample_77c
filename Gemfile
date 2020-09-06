@@ -79,6 +79,7 @@ group :production do
 end
 
 gem 'devise'
+gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'active_hash'

@@ -9,10 +9,10 @@
         %br/
         フリマアプリです
       .content__btn
-        %a.aBtn{:href => "#"}
-          %img{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
-        %a.gBtn{:href => "#"}
-          %img{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+        =link_to "#", class:'aBtn' do
+          = image_tag "/assets/app_store.png"
+        =link_to "#", class:'gBtn' do
+          = image_tag "/assets/google_play.png"
     .picture
   %section.topIntroduction
     %h2.subtitle
@@ -21,7 +21,7 @@
       %li.list
         .list__pict
           %span.number 1
-          %img{:src => "/assets/pict-reason-01-77b860b45f32923029756050dafc0f6df01a36675414b0f26f127c64a53baaea.jpg"}/
+          = image_tag "/assets/pict-reason-01.jpg"
         %h3.list__text
           %span 3分
           ですぐに出品
@@ -30,7 +30,7 @@
       %li.list
         .list__pict
           %span.number 2
-          %img{:src => "/assets/pict-reason-02-3471b96ea7b52654510992e57dc05af07926de0836200059b7fa4ead05ee4d56.jpg"}/
+          = image_tag "/assets/pict-reason-02.jpg"
         %h3.list__text
           %span シンプル
           で使いやすい
@@ -39,7 +39,7 @@
       %li.list.list--last
         .list__pict
           %span.number 3
-          %img{:src => "/assets/pict-reason-03-1e3c743f3ba3db8c43987d2e257916a615aa8fc59c02bbc116f041a5580ec28f.jpg"}/
+          = image_tag "/assets/pict-reason-03.jpg"
         %h3.list__text
           手数料
           %span 業界最安
@@ -55,29 +55,29 @@
         %br/
         ほしかったあの商品に出会えるかもしれません。
       .btn
-        %a{:href => "#"}
-          %img.aBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
-        %a{:href => "#"}
-          %img.gBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+        =link_to "#" do
+          =image_tag "/assets/app_store.png", class: "aBtn"
+        =link_to "#" do
+          =image_tag "/assets/google_play.png", class: "gBtn"
   %section.topKeyFeatures
     %h2.head
       FURIMAの特徴
     .items
       %section.item
         %figure.item__img
-          %img{:src => "/assets/icon-01-7f6abf70ea7deaed9ab5d8b6d5cb796250e3e292b9ecdc559ebe6492c31fdab8.svg"}/
+          = image_tag "/assets/icon-01.png"
         %h3.item__subtitle 簡単に売り買いできる
         %p.item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.item
         %figure.item__img
-          %img{:src => "/assets/icon-03-9c0d78266a316fec7b738dcf5c68dd987afb9655b13fd2cd5d30bcf09e827694.svg"}/
+          = image_tag "/assets/icon-03.png"
         %h3.item__subtitle 売上金は即日振込みに対応
         %p.item__detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %section.item
         %figure.item__img
-          %img{:src => "/assets/icon-04-c4052f85cd6e1f62ea8cac8c55277d7fa4bda971d924f8a2afe72eea6558fa85.svg"}/
+          = image_tag "/assets/icon-04.png"
         %h3.item__subtitle 様々な支払いに対応
         %p.item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
@@ -85,13 +85,13 @@
     %h2.head ピックアップカテゴリー
     .productBox
       .productHead
-        %a{:href => "#"}
+        =link_to "#" do
           %h3.title 新規投稿商品
       .productLists
         .productList
-          %a{:href => "/products/9"}
+          =link_to "/products/9" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
             .productList--body
               %h3.name テスト
               .details
@@ -102,9 +102,9 @@
                     1
                 %p (税込)
         .productList
-          %a{:href => "/products/8"}
+          =link_to "/products/8" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
             .productList--body
               %h3.name ee
               .details
@@ -115,9 +115,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/3"}
+          =link_to "/products/3" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .productList--body
               %h3.name product3
               .details
@@ -128,9 +128,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
+          =link_to "/products/2" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .productList--body
               %h3.name product2
               .details
@@ -141,9 +141,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
+          =link_to "/products/1" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .productList--body
               %h3.name product1
               .details
@@ -157,13 +157,13 @@
     %h2.head ピックアップブランド
     .productBox
       .productHead
-        %a{:href => "#"}
+        =link_to "#" do
           %h3.title アーカイバ
       .productLists
         .productList
-          %a{:href => "/products/9"}
+          =link_to "/products/9" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
             .productList--body
               %h3.name テスト
               .details
@@ -174,9 +174,9 @@
                     1
                 %p (税込)
         .productList
-          %a{:href => "/products/8"}
+          =link_to "/products/8" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
             .productList--body
               %h3.name ee
               .details
@@ -187,9 +187,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/3"}
+          =link_to "/products/3" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .productList--body
               %h3.name product3
               .details
@@ -200,9 +200,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
+          =link_to "/products/2" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .productList--body
               %h3.name product2
               .details
@@ -213,9 +213,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
+          =link_to "/products/1" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .productList--body
               %h3.name product1
               .details
