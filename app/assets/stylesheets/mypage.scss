@@ -51,6 +51,8 @@ span {
   width: 100%;
   display: inline-block;
   text-align: left;
+  font-weight: 600;
+  color: #333;
   a {
     position: relative;
     display: block;
@@ -100,7 +102,7 @@ span {
   }
 }
 
-
-
-
-
+.l-side {
+  width: 280px;
+  height: 734px;
+}
