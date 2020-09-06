@@ -3,8 +3,7 @@
     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.inner__text 今すぐ無料ダウンロード！
     .inner__icon
-      %a{href: "#"}
-        %img.linkIcon.aBtn{src: "/assets/app_store.png"}/
-      %a{href: "#"}
-        %img.linkIcon.gBtn{src: "/assets/google_play.png"}/
-        
+      =link_to "#" do
+        =image_tag "/assets/app_store.png", class: "aBtn"
+      =link_to "#" do
+        =image_tag "/assets/google_play.png", class: "gBtn"
