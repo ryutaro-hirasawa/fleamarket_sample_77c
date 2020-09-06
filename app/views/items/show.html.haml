@@ -1,0 +1,200 @@
+.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.icon
+        =link_to root_path do
+          =image_tag  ("logo.png")
+      .searchBox
+        = form_with(url: "#", local: true, method: :get, class: "searchBox__form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
+          = button_tag type: "submit", class: "searchBox__form__btn" do
+            .searchBox__icon
+              = image_tag "icon-search 1.png", width:"19.72",height:"19.72"
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__category
+          %a{href: ""}カテゴリー
+          %ul.listsLeft__category__parents
+            %li
+              %a{href: ""}レディース
+              %ul.listsLeft__category__children
+                %li
+                  %a{href: ""}トップス
+                  %ul.listsLeft__category__grandchildren
+                    %li
+                      %a{href: ""}Tシャツ/カットソー(半袖/袖なし)
+        %li.listsLeft__bland
+          = link_to "#" do
+            ブランド
+      %ul.listsRight
+        - if user_signed_in?
+          %li.listsRight-mypage
+            = link_to  do
+              マイページ
+          %li.listsRight-logout
+            = link_to  do
+              ログアウト
+        - else
+          %li.listsRight-login
+            = link_to  do
+              ログイン
+          %li.listsRight-reg
+            = link_to  do
+              新規会員登録
+.itemmain
+  .showmain
+    .contentleftqq
+    .contentright
+      .topcontent
+        .itembox
+          %h2.itemBox__name PS5
+          .itemBox__body
+            %ul
+              %li
+                = image_tag "https://realsound.jp/wp-content/uploads/2020/06/20200612-ps5-950x531.jpg", size: "560x400", class: "topimg"
+            %ul
+              %li
+                = image_tag "https://www.watch.impress.co.jp/img/ipw/docs/1258/889/ps10_s.jpg", size: "80x80", class: "leftimg"
+              %li
+                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", size: "80x80", class: "rightimg"
+          .itemBox__price
+            %span
+              ¥50000
+            .itemBox__price-detail
+              %span
+                (税込)
+              %span
+                送料込み
+          .itemDetail 詳細
+          .table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td 阿部さん
+                %tr
+                  %th カテゴリー
+                  %td
+                    = link_to "#" do
+                      ベビー・キッズ
+                    %br/
+                    = link_to "#" do
+                      ベビー服(男の子用)  ~95cm
+                    %br/
+                    = link_to "#" do
+                      アウター
+                %tr
+                  %th ブランド
+                  %td　Sony
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 新品/未使用
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み（出品者負担）
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = link_to "#" do
+                      大阪
+                %tr
+                  %th 発送日の目安
+                  %td 1-2日で発送
+          .optionalArea
+            %ul
+              %li#likeBtn.optionalBtn.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                = link_to "#" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .commentBox
+          .commentContents
+          %ul
+            = form_with(url: "#", local: true, method: :get) do |f|
+              = f.text_area :text, placeholder: "コメント欄", rows: "5"
+              .note
+                %h1 相手のことを考え丁寧なコメントを心がけましょう。
+                %h2 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              = f.submit"コメントする", class:"btn"
+      %ul.links
+        %li
+          = link_to "#" do
+            %i.fa.fa-angle-left
+            %span
+            前の商品
+        %li
+          = link_to "#" do
+            %span 後ろの商品
+            %i.fa.fa-angle-right
+      .relatedItems
+        = link_to "#" do
+          ベビー・キッズをもっと見る
+        .productLists
+          .productList
+            = link_to "#" do
+              %figure.productList--img
+                = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3J-00KR4aPc-Sgp9JJ2IE8vA1KS7jIN7hNg&usqp=CAU", class: "moreimg"
+              .productList--body
+                %h3.name product3
+                .details
+                  %ul
+                    %li 30000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
+
+.appBanner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .inner__icon
+      %a{:href => "#"}
+        %img.linkIcon.aBtn{:src => "/assets/app_store.png"}/
+      %a{:href => "#"}
+        %img.linkIcon.gBtn{:src => "/assets/google_play.png"}/
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__head FURIMAについて
+      %ul
+        %li
+          %a{href: ""} 会社概要（運営会社）
+        %li
+          %a{href: ""} プライバシーポリシー
+        %li
+          %a{href: ""} FURIMA利用規約
+        %li
+          %a{href: ""} ポイントに関する特約
+    %li.content
+      %h2.content__head FURIMAを見る
+      %ul
+        %li
+          %a{href: ""} カテゴリー一覧
+        %li
+          %a{href: ""} ブランド一覧
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          %a{href: ""} FURIMAガイド
+        %li
+          %a{href: ""} FURIMAロゴ利用ガイドライン
+        %li
+          %a{href: ""} お知らせ
+  .footer__logo
+    =link_to root_path do
+      =image_tag "logo-white.png", width:"160",height:"46.34"
+  %p © FURIMA
+
+%a{href: "#"}
+  .SellBtn
+    %span.SellBtn__text 出品する
+    %img.SellBtn__icon{src: "/assets/icon_camera.png"}/
