@@ -58,12 +58,12 @@
   color: black;
   text-decoration: none;
   margin-top: 0px;
+  span {
+    margin: 0 0 0 8px;
+    font-size: 16px;
+  }  
 }
 
-span {
-  margin: 0 0 0 8px;
-  font-size: 16px;
-}
 
 .mypage-tabs {
   background: #eee;

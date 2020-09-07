@@ -1,7 +1,17 @@
 .main {
   background: #f8f8f8;
-  .mainVisual {
+  img {
     width: 100%;
+    vertical-align: bottom;
+  }
+  
+  .aBtn {
+    width: 180px;
+  }
+  .gBtn {
+    width: 180px;
+  }
+  .mainVisual {
     height: 560px;
     background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
     background-size: cover;
@@ -180,6 +190,7 @@
         width: calc(1 / 3 * 100%);
         text-align: center;
         padding: 0 20px;
+        box-sizing: border-box;
         &__img {
           width: 70%;
           margin: 0 auto;
@@ -241,6 +252,7 @@
         .productList {
           width: 220px;
           display: inline-block;
+          margin: 0;
           a {
             background-color: #fff;
             display: inline-block;
@@ -267,6 +279,7 @@
             .productList--body {
               background-color: white;
               color: #333;
+              width: 188px;
               padding: 16px;
               .name {
                 overflow: hidden;
@@ -305,14 +318,3 @@
   }
 }
 
-img {
-  width: 100%;
-  vertical-align: bottom;
-}
-
-.aBtn {
-  width: 180px;
-}
-.gBtn {
-  width: 180px;
-}
