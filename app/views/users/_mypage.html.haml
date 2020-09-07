@@ -1,0 +1,61 @@
+.mypage  
+  .l-side
+    %ul.mypage-nav-list
+      %li
+        = link_to 'マイページ', '＃', class: 'sidemenu'
+        = link_to 'トップページ', '＃', class: 'sidemenu'
+        = link_to '出品する', '＃', class: 'sidemenu'
+        = link_to '出品商品一覧', '＃', class: 'sidemenu'
+        = link_to '売却済の商品一覧', '＃', class: 'sidemenu'
+        = link_to 'お問い合わせ', '＃', class: 'sidemenu'
+    %h3.mypage-nav-head
+      各種設定
+    %ul.mypage-nav-list
+      %li
+        = link_to '会員情報の編集', '＃', class: 'sidemenu'
+        = link_to 'お届先住所の編集', '＃', class: 'sidemenu'
+        = link_to 'お支払い情報の登録/確認/削除', '＃', class: 'sidemenu'
+        = link_to 'ログアウト', '＃', class: 'sidemenu'
+
+  .l_content
+    .mypage-user-icon
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", width: "60", height: "60",class: 'myimage'
+      = link_to '阿部', "#", class: 'bold'
+      .mypage-number
+        %h1
+          評価
+          %span.bold 0
+        %h1
+          出品数
+          %span.bold 0
+    %ul.mypage-tabs
+      %li.active
+        %h3
+          = link_to '最近出品された商品'
+    .productLists
+      .productList
+        = link_to image_tag("sava.png", class:'product')
+        .productList--body
+          = link_to 'product1', '＃', class: 'name'
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
+      .productList
+        = link_to image_tag("sava.png", class:'product')
+        .productList--body
+          = link_to 'product1', '＃', class: 'name'
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
+      .productList
+        = link_to image_tag("sava.png", class:'product')
+        .productList--body
+          = link_to 'product1', '＃', class: 'name'
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
+        
