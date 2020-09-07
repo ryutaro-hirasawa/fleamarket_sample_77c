@@ -2,88 +2,60 @@
   .l-side
     %ul.mypage-nav-list
       %li
-        %a.sidemenu{:href => "#"}
-          マイページ
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          トップページ
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          出品する
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          出品の商品一覧
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          売却済の商品一覧
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          お問い合わせ
-          %i.icon-arrow-right
+        = link_to 'マイページ', '＃', class: 'sidemenu'
+        = link_to 'トップページ', '＃', class: 'sidemenu'
+        = link_to '出品する', '＃', class: 'sidemenu'
+        = link_to '出品商品一覧', '＃', class: 'sidemenu'
+        = link_to '売却済の商品一覧', '＃', class: 'sidemenu'
+        = link_to 'お問い合わせ', '＃', class: 'sidemenu'
     %h3.mypage-nav-head
       各種設定
     %ul.mypage-nav-list
       %li
-        %a.sidemenu{:href => "#"}
-          会員情報の編集
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          お届先住所の編集
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          お支払い情報の登録/確認/削除
-          %i.icon-arrow-right
-        %a.sidemenu{:href => "#"}
-          ログアウト
-          %i.icon-arrow-right
+        = link_to '会員情報の編集', '＃', class: 'sidemenu'
+        = link_to 'お届先住所の編集', '＃', class: 'sidemenu'
+        = link_to 'お支払い情報の登録/確認/削除', '＃', class: 'sidemenu'
+        = link_to 'ログアウト', '＃', class: 'sidemenu'
 
   .l_content
     .mypage-user-icon
-      %a{:href => "#"}
-        %figure
-          = image_tag "member_photo_noimage_thumb.png", width: "60", height: "60",class: 'myimage'
-        %a.bold 阿部
-        .mypage-number
-          %a
-            評価
-            %span.bold 0
-          %a
-            出品数
-            %span.bold 0
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", width: "60", height: "60",class: 'myimage'
+      = link_to '阿部', "#", class: 'bold'
+      .mypage-number
+        %h1
+          評価
+          %span.bold 0
+        %h1
+          出品数
+          %span.bold 0
     %ul.mypage-tabs
       %li.active
         %h3
-          %a{:href => "#"} 最近出品した商品
+          = link_to '最近出品された商品'
     .productLists
       .productList
-        %a{:href => "#"}
-          %figure.productList--img
-            = image_tag "sava.png", class:'product'
-          .productList--body
-            %a.name product1
-            .details
-              %ul.yen
-                %li 3000円
-              %p.tax （税込み）
+        = link_to image_tag("sava.png", class:'product')
+        .productList--body
+          = link_to 'product1', '＃', class: 'name'
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
       .productList
-        %a{:href => "#"}
-          %figure.productList--img
-            = image_tag "sava.png", class:'product'
-          .productList--body
-            %a.name product1
-            .details
-              %ul.yen
-                %li 3000円
-                %i.fa_star
-              %p.tax （税込み）
+        = link_to image_tag("sava.png", class:'product')
+        .productList--body
+          = link_to 'product1', '＃', class: 'name'
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
       .productList
-        %a{:href => "#"}
-          %figure.productList--img
-            = image_tag "sava.png", class:'product'
-          .productList--body
-            %a.name product1
-            .details
-              %ul.yen
-                %li 3000円
-              %p.tax （税込み）
+        = link_to image_tag("sava.png", class:'product')
+        .productList--body
+          = link_to 'product1', '＃', class: 'name'
+          .details
+            %ul.yen
+              %li 3000円
+            %p.tax （税込み）
         

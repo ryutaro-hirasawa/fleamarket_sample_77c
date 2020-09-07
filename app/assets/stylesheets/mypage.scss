@@ -37,9 +37,13 @@
   background-size: cover;
   text-align: center;
   background-image: url(image-path("bubble.jpg"))
+  
 }
 
-
+.myimage {
+  width: 60px;
+  height: 60px;
+}
 
 .bold {
   font-weight: 600;
@@ -53,6 +57,7 @@
   margin: 8px 0 0;
   color: black;
   text-decoration: none;
+  margin-top: 0px;
 }
 
 span {
@@ -118,6 +123,7 @@ span {
       margin-left: 0px;
       .name {
         text-decoration: none;
+        color: black;
       }
       .yen {
         margin-top: 5px;
