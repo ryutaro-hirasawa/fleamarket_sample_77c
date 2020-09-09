@@ -13,16 +13,16 @@
     .nav
       %ul.listsLeft
         %li.listsLeft__category
-          =link_to  "カテゴリー"
+          %a{href: ""}カテゴリー
           %ul.listsLeft__category__parents
             %li
-              =link_to  "レディース"
+              %a{href: ""}レディース
               %ul.listsLeft__category__children
                 %li
-                  =link_to  "トップス"
+                  %a{href: ""}トップス
                   %ul.listsLeft__category__grandchildren
                     %li
-                      =link_to  "Tシャツ/カットソー(半袖/袖なし)"
+                      %a{href: ""}Tシャツ/カットソー(半袖/袖なし)
         %li.listsLeft__bland
           = link_to "#" do
             ブランド
@@ -41,44 +41,22 @@
           %li.listsRight-reg
             = link_to  do
               新規会員登録
-
-%nav.breadCrumbs
-  %ul
-    %li
-      %a{:href => "/"} FURIMA
-    %li
-      %i.fa.fa-angle-right
-    %li
-      %a{:href => "#"} ベビー・キッズ
-    %li
-      %i.fa.fa-angle-right
-    %li
-      %a{:href => "#"} ベビー服(男の子用)  ~95cm
-    %li
-      %i.fa.fa-angle-right
-    %li
-      %a{:href => "#"} アウター
-    %li
-      %i.fa.fa-angle-right
-    %li
-      %p PS5
-
-.item-main
-  .show-main
-    .content-leftqq
-    .content-right
-      .top-content
-        .itemBox
+.itemmain
+  .showmain
+    .contentleftqq
+    .contentright
+      .topcontent
+        .itembox
           %h2.itemBox__name PS5
           .itemBox__body
-            %ul.itemBox__sub
+            %ul
               %li
-                = image_tag "https://realsound.jp/wp-content/uploads/2020/06/20200612-ps5-950x531.jpg", class: "topimg"
-            %ul.itemBox__sub
+                = image_tag "https://realsound.jp/wp-content/uploads/2020/06/20200612-ps5-950x531.jpg", size: "560x400", class: "topimg"
+            %ul
               %li
-                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", class: "leftimg"
+                = image_tag "https://www.watch.impress.co.jp/img/ipw/docs/1258/889/ps10_s.jpg", size: "80x80", class: "leftimg"
               %li
-                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", class: "rightimg"
+                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", size: "80x80", class: "rightimg"
           .itemBox__price
             %span
               ¥50000
@@ -87,19 +65,15 @@
                 (税込)
               %span
                 送料込み
-          .itemDetail
-            まだこの世のどこにも存在していないPS5です！欲しくありませんか？何故あなたは持っているのですか？いつから私がPS5を持っていると錯覚していた！
+          .itemDetail 詳細
           .table
             %table
               %tbody
                 %tr
-                  %th
-                    出品者
-                  %td
-                    阿部さん
+                  %th 出品者
+                  %td 阿部さん
                 %tr
-                  %th
-                    カテゴリー
+                  %th カテゴリー
                   %td
                     = link_to "#" do
                       ベビー・キッズ
@@ -110,38 +84,27 @@
                     = link_to "#" do
                       アウター
                 %tr
-                  %th
-                    ブランド
-                  %td
-                    Sony
+                  %th ブランド
+                  %td　Sony
                 %tr
-                  %th
-                    商品のサイズ
+                  %th 商品のサイズ
                   %td
-                    りんご3つ分
                 %tr
-                  %th
-                    商品の状態
-                  %td
-                    新品/未使用
+                  %th 商品の状態
+                  %td 新品/未使用
                 %tr
-                  %th
-                    配送料の負担
-                  %td
-                    送料込み（出品者負担）
+                  %th 配送料の負担
+                  %td 送料込み（出品者負担）
                 %tr
-                  %th
-                    発送元の地域
+                  %th 発送元の地域
                   %td
                     = link_to "#" do
                       大阪
                 %tr
-                  %th
-                    発送日の目安
-                  %td
-                    1-2日で発送
+                  %th 発送日の目安
+                  %td 1-2日で発送
           .optionalArea
-            %ul.optionalfav
+            %ul
               %li#likeBtn.optionalBtn.likeBtn
                 %i.fa.fa-star
                 お気に入り 0
@@ -154,50 +117,48 @@
           .commentContents
           %ul
             = form_with(url: "#", local: true, method: :get) do |f|
-              = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
+              = f.text_area :text, placeholder: "コメント欄", rows: "5"
               .note
-                %h1
-                  相手のことを考え丁寧なコメントを心がけましょう。
-                %h2
-                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                %h1 相手のことを考え丁寧なコメントを心がけましょう。
+                %h2 不快な言葉遣いなどは利用制限や退会処分となることがあります。
               = f.submit"コメントする", class:"btn"
       %ul.links
         %li
-          = link_to "#" ,class: "link-text" do
+          = link_to "#" do
             %i.fa.fa-angle-left
             %span
             前の商品
         %li
-          = link_to "#" ,class: "link-text" do
-            %span
-            後ろの商品
+          = link_to "#" do
+            %span 後ろの商品
             %i.fa.fa-angle-right
       .relatedItems
-        = link_to "#" ,class: "more-text" do
+        = link_to "#" do
           ベビー・キッズをもっと見る
-        .productList
-          =link_to "#" do
-            %figure.productList--img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-            .productList--body
-              %h3.name product2
-              .details
-                %ul
-                  %li.detail-price 20000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p.detail-price (税込)
+        .productLists
+          .productList
+            = link_to "#" do
+              %figure.productList--img
+                = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3J-00KR4aPc-Sgp9JJ2IE8vA1KS7jIN7hNg&usqp=CAU", class: "moreimg"
+              .productList--body
+                %h3.name product3
+                .details
+                  %ul
+                    %li 30000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
 
 .appBanner
   .inner
     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.inner__text 今すぐ無料ダウンロード！
     .inner__icon
-      =link_to "#" do
-        =image_tag "/assets/app_store.png", class: "aBtn"
-      =link_to "#" do
-        =image_tag "/assets/google_play.png", class: "gBtn"
+      %a{:href => "#"}
+        %img.linkIcon.aBtn{:src => "/assets/app_store.png"}/
+      %a{:href => "#"}
+        %img.linkIcon.gBtn{:src => "/assets/google_play.png"}/
 
 .footer
   %ul.contents
@@ -205,34 +166,35 @@
       %h2.content__head FURIMAについて
       %ul
         %li
-          =link_to  "会社概要（運営会社）"
+          %a{href: ""} 会社概要（運営会社）
         %li
-          =link_to  "プライバシーポリシー"
+          %a{href: ""} プライバシーポリシー
         %li
-          =link_to  "FURIMA利用規約"
+          %a{href: ""} FURIMA利用規約
         %li
-          =link_to  "ポイントに関する特約"
+          %a{href: ""} ポイントに関する特約
     %li.content
       %h2.content__head FURIMAを見る
       %ul
         %li
-          =link_to  "カテゴリー一覧"
+          %a{href: ""} カテゴリー一覧
         %li
-          =link_to  "ブランド一覧"
+          %a{href: ""} ブランド一覧
     %li.content
       %h2.content__head ヘルプ＆ガイド
       %ul
         %li
-          =link_to  "FURIMAガイド"
+          %a{href: ""} FURIMAガイド
         %li
-          =link_to  "FURIMAロゴ利用ガイドライン"
+          %a{href: ""} FURIMAロゴ利用ガイドライン
         %li
-          =link_to  "お知らせ"
+          %a{href: ""} お知らせ
   .footer__logo
     =link_to root_path do
       =image_tag "logo-white.png", width:"160",height:"46.34"
   %p © FURIMA
-=link_to "#" do
+
+%a{href: "#"}
   .SellBtn
     %span.SellBtn__text 出品する
-    =image_tag  "/assets/icon_camera.png", class:"SellBtn__icon"
+    %img.SellBtn__icon{src: "/assets/icon_camera.png"}/
