@@ -1,5 +1,5 @@
 .breadCrumbs {
-  width: 100%;
+  width: 1320px;
   border-top: 1px solid #eee;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   position: relative;
@@ -13,6 +13,8 @@
   max-width: 1040px;
   font-size: 14px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .breadCrumbs ul li a {
@@ -41,11 +43,11 @@
 
 .content-right{
   width: 700px;
-  margin: 0 auto;
+  margin: 0 300px;
 }
 
 .itemBox__name{
-  padding-left: 300px;
+  text-align: center;
   font-weight: bold;
   font-size: 25px;
 }
@@ -70,7 +72,7 @@
 }
 
 .itemBox__price{
-  padding-left: 300px;
+  text-align: center;
   padding-top: 25px;
 }
 
@@ -176,7 +178,7 @@ a{
   color: black;
 }
 
-a:hover {
+ul.optional li.optionalBtn a:hover {
   background-color: #f8f8f8;
 }
 
@@ -185,19 +187,23 @@ a:hover {
   background-color: #ffffff;
 }
 
+.productList:hover {
+  background-color: #f8f8f8;
+}
+
 ul{
-  display: flex;
-  justify-content: space-between;
 }
 
 .name{
   color: black;
 }
 
-.detail-price{
-  color: black;
+.details ul{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
-li{
+.detail-price{
   color: black;
 }
