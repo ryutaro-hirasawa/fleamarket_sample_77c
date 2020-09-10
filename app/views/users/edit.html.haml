@@ -1,0 +1,7 @@
+.contents.row
+  .container
+    = form_with(model: @user, local: true, method: :patch) do |form|
+      %h3
+        編集する
+      = form.text_field :name, placeholder: "Nickname"
+      = form.submit "SEND"
