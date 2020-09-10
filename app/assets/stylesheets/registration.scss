@@ -1,5 +1,14 @@
-body{
+.header_FURIMA{
   background-color: #f8f8f8;
+  .header__logo {
+    margin-left: 650px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    .furima_logo {
+  width: 214px;
+  height: 62px;
+}
+  }
 }
 
 // img{
@@ -37,25 +46,30 @@ body{
   }
 }
 
-.aaa {
-  width: 214px;
-  height: 62px;
+.login_page_main{
+  height: 687px;
+  background-color: #f8f8f8;
 }
 
 
 
-// .form-group__require{
-//   font-size: 8px;
-//   color: #ffffff;
-//   background-color: #ea352d;
-//   margin-left: 8px;
-//   padding: 2px 4px;
-//   border-radius: 2px;
-//   vertical-align: top;
-// }
+.form-group__require{
+  font-size: 8px;
+  color: #ffffff;
+  background-color: #ea352d;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  vertical-align: top;
+}
 
 
+.Completion_registration {
+  font-size: 40px;
+  margin-left: 600px;
+}
 
-
-
-
+.top_path {
+  margin-left: 680px;
+  font-size: 30px;
+}

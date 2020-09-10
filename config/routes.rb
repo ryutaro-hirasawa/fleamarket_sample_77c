@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destinations'
   end
   root to: "items#index"
+  resources :users, :only => [:show]
 end
