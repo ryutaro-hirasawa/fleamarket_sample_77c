@@ -29,17 +29,15 @@
       %ul.listsRight
         - if user_signed_in?
           %li.listsRight-mypage
-            = link_to  do
-              マイページ
+            = link_to 'マイページ', "/users/show"
           %li.listsRight-logout
-            = link_to  do
-              ログアウト
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.listsRight-login
-            = link_to  do
+            = link_to "/users/sign_in" do
               ログイン
           %li.listsRight-reg
-            = link_to  do
+            = link_to "/users/sign_up" do
               新規会員登録
 
 %nav.breadCrumbs
