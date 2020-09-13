@@ -3,8 +3,8 @@
     %ul.mypage-nav-list
       %li
         = link_to 'マイページ', '＃', class: 'sidemenu'
-        = link_to 'トップページ', '＃', class: 'sidemenu'
-        = link_to '出品する', '＃', class: 'sidemenu'
+        = link_to 'トップページ', '/', class: 'sidemenu'
+        = link_to '出品する', '/items/new', class: 'sidemenu'
         = link_to '出品商品一覧', '＃', class: 'sidemenu'
         = link_to '売却済の商品一覧', '＃', class: 'sidemenu'
         = link_to 'お問い合わせ', '＃', class: 'sidemenu'
@@ -35,27 +35,41 @@
           = link_to '最近出品された商品'
     .productLists
       .productList
-        = link_to image_tag("sava.png", class:'product')
-        .productList--body
-          = link_to 'product1', '＃', class: 'name'
-          .details
-            %ul.yen
-              %li 3000円
-            %p.tax （税込み）
+        =link_to "/items/show" do
+          %figure.productList--img
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          .productList--body
+            %h3.name product1
+            .details
+              %ul
+                %li 30000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
       .productList
-        = link_to image_tag("sava.png", class:'product')
-        .productList--body
-          = link_to 'product1', '＃', class: 'name'
-          .details
-            %ul.yen
-              %li 3000円
-            %p.tax （税込み）
+        =link_to "/products/2" do
+          %figure.productList--img
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          .productList--body
+            %h3.name product2
+            .details
+              %ul
+                %li 30000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
       .productList
-        = link_to image_tag("sava.png", class:'product')
-        .productList--body
-          = link_to 'product1', '＃', class: 'name'
-          .details
-            %ul.yen
-              %li 3000円
-            %p.tax （税込み）
-        
+        =link_to "/products/3" do
+          %figure.productList--img
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          .productList--body
+            %h3.name product3
+            .details
+              %ul
+                %li 30000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)

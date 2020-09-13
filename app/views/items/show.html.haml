@@ -1,0 +1,240 @@
+.pcHeader
+  .headerInner
+    .mainHeader
+      %h1.icon
+        =link_to root_path do
+          =image_tag  ("logo.png")
+      .searchBox
+        = form_with(url: "#", local: true, method: :get, class: "searchBox__form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
+          = button_tag type: "submit", class: "searchBox__form__btn" do
+            .searchBox__icon
+              = image_tag "icon-search 1.png", width:"19.72",height:"19.72"
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__category
+          =link_to  "カテゴリー"
+          %ul.listsLeft__category__parents
+            %li
+              =link_to  "レディース"
+              %ul.listsLeft__category__children
+                %li
+                  =link_to  "トップス"
+                  %ul.listsLeft__category__grandchildren
+                    %li
+                      =link_to  "Tシャツ/カットソー(半袖/袖なし)"
+        %li.listsLeft__bland
+          = link_to "#" do
+            ブランド
+      %ul.listsRight
+        - if user_signed_in?
+          %li.listsRight-mypage
+            = link_to 'マイページ', "/users/show"
+          %li.listsRight-logout
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.listsRight-login
+            = link_to "/users/sign_in" do
+              ログイン
+          %li.listsRight-reg
+            = link_to "/users/sign_up" do
+              新規会員登録
+
+%nav.breadCrumbs
+  %ul
+    %li
+      = link_to "#" do
+        FURIMA
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to "#" do
+        ベビー・キッズ
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to "#" do
+        ベビー服(男の子用)  ~95cm
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to "#" do
+        アウター
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %p PS5
+
+.item-main
+  .show-main
+    .content-leftqq
+    .content-right
+      .top-content
+        .itemBox
+          %h2.itemBox__name PS5
+          .itemBox__body
+            %ul.itemBox__sub
+              %li
+                = image_tag "https://realsound.jp/wp-content/uploads/2020/06/20200612-ps5-950x531.jpg", class: "topimg"
+            %ul.itemBox__sub
+              %li
+                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", class: "leftimg"
+              %li
+                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", class: "rightimg"
+          .itemBox__price
+            %span
+              ¥50000
+            .itemBox__price-detail
+              %span
+                (税込)
+              %span
+                送料込み
+          .itemDetail
+            まだこの世のどこにも存在していないPS5です！欲しくありませんか？何故あなたは持っているのですか？いつから私がPS5を持っていると錯覚していた！
+          .table
+            %table
+              %tbody
+                %tr
+                  %th
+                    出品者
+                  %td
+                    阿部さん
+                %tr
+                  %th
+                    カテゴリー
+                  %td
+                    = link_to "#" do
+                      ベビー・キッズ
+                    %br/
+                    = link_to "#" do
+                      ベビー服(男の子用)  ~95cm
+                    %br/
+                    = link_to "#" do
+                      アウター
+                %tr
+                  %th
+                    ブランド
+                  %td
+                    Sony
+                %tr
+                  %th
+                    商品のサイズ
+                  %td
+                    りんご3つ分
+                %tr
+                  %th
+                    商品の状態
+                  %td
+                    新品/未使用
+                %tr
+                  %th
+                    配送料の負担
+                  %td
+                    送料込み（出品者負担）
+                %tr
+                  %th
+                    発送元の地域
+                  %td
+                    = link_to "#" do
+                      大阪
+                %tr
+                  %th
+                    発送日の目安
+                  %td
+                    1-2日で発送
+          .optionalArea
+            %ul.optionalfav
+              %li#likeBtn.optionalBtn.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                = link_to "#" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .commentBox
+          .commentContents
+          %ul
+            = form_with(url: "#", local: true, method: :get) do |f|
+              = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
+              .note
+                %h1
+                  相手のことを考え丁寧なコメントを心がけましょう。
+                %h2
+                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              = f.submit"コメントする", class:"comment_btn"
+      %ul.links
+        %li
+          = link_to "#" ,class: "link-text" do
+            %i.fa.fa-angle-left
+            %span
+            前の商品
+        %li
+          = link_to "#" ,class: "link-text" do
+            %span
+            後ろの商品
+            %i.fa.fa-angle-right
+      .relatedItems
+        = link_to "#" ,class: "more-text" do
+          ベビー・キッズをもっと見る
+        .productList
+          =link_to "#" do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+            .productList--body
+              %h3.name product2
+              .details
+                %ul
+                  %li.detail-price 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    0
+                %p.detail-price (税込)
+
+.appBanner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .inner__icon
+      =link_to "#" do
+        =image_tag "/assets/app_store.png", class: "aBtn"
+      =link_to "#" do
+        =image_tag "/assets/google_play.png", class: "gBtn"
+
+.footer
+  %ul.contents
+    %li.content
+      %h2.content__head FURIMAについて
+      %ul
+        %li
+          =link_to  "会社概要（運営会社）"
+        %li
+          =link_to  "プライバシーポリシー"
+        %li
+          =link_to  "FURIMA利用規約"
+        %li
+          =link_to  "ポイントに関する特約"
+    %li.content
+      %h2.content__head FURIMAを見る
+      %ul
+        %li
+          =link_to  "カテゴリー一覧"
+        %li
+          =link_to  "ブランド一覧"
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to  "FURIMAガイド"
+        %li
+          =link_to  "FURIMAロゴ利用ガイドライン"
+        %li
+          =link_to  "お知らせ"
+  .footer__logo
+    =link_to root_path do
+      =image_tag "logo-white.png", width:"160",height:"46.34"
+  %p © FURIMA
+=link_to "#" do
+  .SellBtn
+    %span.SellBtn__text 出品する
+    =image_tag  "/assets/icon_camera.png", class:"SellBtn__icon"
