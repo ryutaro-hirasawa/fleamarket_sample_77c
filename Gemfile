@@ -83,4 +83,6 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'active_hash'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
