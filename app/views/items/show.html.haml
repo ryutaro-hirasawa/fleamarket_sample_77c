@@ -3,7 +3,7 @@
     .mainHeader
       %h1.icon
         =link_to root_path do
-          =image_tag  ("logo.png")
+          =image_tag "logo.png"
       .searchBox
         = form_with(url: "#", local: true, method: :get, class: "searchBox__form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
@@ -197,9 +197,9 @@
     %p.inner__text 今すぐ無料ダウンロード！
     .inner__icon
       =link_to "#" do
-        =image_tag "/assets/app_store.png", class: "aBtn"
+        =image_tag "app_store.png", class: "aBtn"
       =link_to "#" do
-        =image_tag "/assets/google_play.png", class: "gBtn"
+        =image_tag "google_play.png", class: "gBtn"
 
 .footer
   %ul.contents
@@ -237,4 +237,4 @@
 =link_to "#" do
   .SellBtn
     %span.SellBtn__text 出品する
-    =image_tag  "/assets/icon_camera.png", class:"SellBtn__icon"
+    =image_tag "icon_camera.png", class:"SellBtn__icon"

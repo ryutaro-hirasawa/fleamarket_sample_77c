@@ -3,7 +3,7 @@
     .mainHeader
       %h1.icon
         =link_to root_path do
-          =image_tag  ("logo.png")
+          =image_tag "logo.png"
       .searchBox
         = form_with(url: "#", local: true, method: :get, class: "searchBox__form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
