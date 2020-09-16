@@ -1,3 +1,5 @@
+-#%render partial: 'form'
+
 .ItemNew__Box
 
   .ItemNew__Header
@@ -9,17 +11,26 @@
   .ItemNew-Maim
 
     .ItemNew-Center
-      = form_with(url: "#", local: true, method: :get) do |f|
+      = form_with(model: @item, local: true) do |f|
         .ItemEntry
           %h.ItemEntry__text 商品画像
           %span.ItemEntry__require 必須
           %br
           最大3枚までアップロードできます
+          = f.fields_for :images do |i|
+            = i.file_field :src
+            %br
 
-        .ItemNew-Img
-          =f.label :image, class: 'ItemNew-Img' do
-            = icon('far', 'image', class: 'ItemNew-Img__icon')
-            = f.file_field :image, class: 'Hidden'
+        /* % product.images.each do |image|
+        /* %= image_tag image.src.url
+        /* % end
+
+
+
+        /*.ItemNew-Img
+        /*  =f.label :images, class: 'ItemNew-Img' do
+        /*    = icon('far', 'images', class: 'ItemNew-Img__icon')
+        /*    = f.file_field :images, class: 'Hidden'
         .ItemEntry
           %h.ItemEntry__text 商品名
           %span.ItemEntry__require 必須
@@ -36,7 +47,8 @@
           %h.ItemEntry__text カテゴリー
           %span.ItemEntry__require 必須
         .ItemNew-category
-        = f.select :category, ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チェット", "自転車・オートバイ", "その他"], prompt: '選択してください', class: 'ItemNew-category'
+        /*= f.select :category_id, ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チェット", "自転車・オートバイ", "その他"], prompt: '選択してください', class: 'ItemNew-category'
+        = f.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください", class: 'input'
 
         .ItemEntry
           %h.ItemEntry__text ブランド
@@ -46,23 +58,28 @@
         .ItemEntry
           %h.ItemEntry__text 商品の状態
           %span.ItemEntry__require 必須
-        = f.select :item_condition_id, [["新品・未使用", "1"], ["未使用に近い", "2"], ["目立った傷や汚れなし", "3"], ["やや傷や汚れあり", "4"], ["傷や汚れあり", "5"], ["全体的に状態が悪い", "6"]], prompt: '選択してください', id:'Item.new_item_condition_id'
+        /*= f.select :item_condition_id, [["新品・未使用", "1"], ["未使用に近い", "2"], ["目立った傷や汚れなし", "3"], ["やや傷や汚れあり", "4"], ["傷や汚れあり", "5"], ["全体的に状態が悪い", "6"]], prompt: '選択してください', id:'Item.new_item_condition_id'
+        = f.collection_select :item_condition_id, Itemcondition.all, :id, :name, prompt: "選択してください", class: 'input'
 
         .p 発送について
 
         .ItemEntry
           %h.ItemEntry__text 配送料の負担
           %span.ItemEntry__require 必須
-        = f.select :postage_payer_id, [["送料込み(出品者負担)", "1"], ["着払い(購入者負担)", "2"]], id: 'item_postage_payer_id'
+        /*= f.select :postage_payer_id, [["送料込み(出品者負担)", "1"], ["着払い(購入者負担)", "2"]], id: 'item_postage_payer_id'
+        = f.collection_select :postage_payer_id, Postage.all, :id, :name, prompt: "選択してください", class: 'input'
 
         .ItemEntry
           %h.ItemEntry__text 発送元の地域
           %span.ItemEntry__require 必須
-        = f.select :prefecture_code_id, [["北海道", "1"], ["青森県", "2"]], id: 'item_prefecture_code_id'
+        /*= f.select :prefecture_code_id, [["北海道", "1"], ["青森県", "2"]], id: 'item_prefecture_code_id'
+        = f.collection_select :prefecture_code_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
+        
         .ItemEntry
           %h.ItemEntry__text 発送までの日数
           %span.ItemEntry__require 必須
-        = f.select :preparation_day_id, [["1~2日で発送", "1"], ["2~3日で発送", "2"], ["4~7日で発送", "3"]], id: 'item_preparation_day_id'
+        /*= f.select :preparation_day_id, [["1~2日で発送", "1"], ["2~3日で発送", "2"], ["4~7日で発送", "3"]], id: 'item_preparation_day_id'
+        = f.collection_select :preparation_day_id, Preparation.all, :id, :name, prompt: "選択してください", class: 'input'
 
         .p 価格(¥9,999,999,999)
         .ItemEntry-price
