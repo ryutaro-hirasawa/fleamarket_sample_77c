@@ -84,4 +84,6 @@ gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'active_hash'
 gem 'ancestry'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
