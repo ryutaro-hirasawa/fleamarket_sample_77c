@@ -21,7 +21,8 @@
     .mypage-user-icon
       %figure
         = image_tag "member_photo_noimage_thumb.png", width: "60", height: "60",class: 'myimage'
-      = link_to '阿部', "#", class: 'bold'
+      .bold
+        = current_user.nickname
       .mypage-number
         %h1
           評価
