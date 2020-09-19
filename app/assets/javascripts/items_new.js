@@ -35,7 +35,6 @@ $(function(){
                                             <option value="">選択して下さい</option>
                                             ${optionHtml}
                                           </select>
-                                          <i class="fas fa-chevron-down"></i>
                                         </label>
                                       </div>`
         );
@@ -74,7 +73,6 @@ $(function(){
                                             <option value="">選択して下さい</option>
                                             ${optionHtml}
                                           </select>
-                                          <i class="fas fa-chevron-down"></i>
                                         </label>
                                       </div>`
         );
