@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
     @item = Item.new(item_params)
+    
     if @item.save
       redirect_to root_path
     else
@@ -30,9 +30,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
 
-  
+  private
 
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :prefecture_code_id, :preparation_day_id, :price, images_attributes:  [:src, :_destroy, :id]).merge(seller_id: current_user.id)

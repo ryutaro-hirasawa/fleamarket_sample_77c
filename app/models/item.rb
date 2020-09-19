@@ -9,11 +9,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :preparation
 
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :seller, class_name: 'User'
   belongs_to :category
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  # mount_uploader :src, ImageUploader
+
 end

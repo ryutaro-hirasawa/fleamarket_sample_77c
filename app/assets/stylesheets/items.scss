@@ -7,7 +7,7 @@
 
 .ItemNew__Box {
   width: 100vw;
-  height: 2000px;
+  height: 2100px;
   background-color: rgb(245, 245, 245);
 
   .ItemNew__Header {
@@ -38,12 +38,12 @@
 
   .ItemNew-Maim {
     width: 600px;
-    height: 1800px;
+    height: 2000px;
     margin: 0px auto;
   }
   .ItemNew-Center {
       width: 600px;
-      height: 1650px;
+      height: 1850px;
       padding: 50px 30px 50px 30px;
       background-color: white;
 
@@ -71,8 +71,12 @@
   }
   .ItemNew-Img {
     width: 600px;
-    height: 140px;
+    height: 240px;
     background-color: rgb(245, 245, 245);
+    #image-box {
+      padding-right: 10px;
+      height: 240px;
+    }
   }
   .ItemNew-name {
     width: 600px;
