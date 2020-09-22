@@ -13,7 +13,16 @@ $(function(){
 
   /* テキストを参考に追記 */
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<img class="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">`;
+    /*  #image-box*/
+    /*    class="image-box"*/
+    /*      class="image-box__button__delite" data-index="${indexLength}" 削除*/
+    /*const html = `
+    .image-box
+      <img>
+      sakujyo
+      henshu
+    `;*/
     return html;
   }
 
@@ -25,9 +34,20 @@ $(function(){
   fileIndex.splice(0, lastIndex);
   $('.hidden-destroy').hide();
 
-  console.log('load');
-  $('#image-box').on('change', '.js-file', function(e) {
-    console.log('change', this);
+  $('.ItemNew-Img').on('click', function(e) {
+    const previewImages = $('.preview-image');
+    /*console.log(previewImages.length);*/
+    if(previewImages.length >= 10){
+      alert('limit');
+      return false;
+    }
+    const fileField = $('input[type="file"]:last');
+    fileField.trigger('click');
+  });
+
+  /*console.log('load');*/
+  $('#file-fields').on('change', '.js-file', function(e) {
+    /*console.log('change', this);*/
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -40,12 +60,14 @@ $(function(){
       // fileIndexの先頭の数字を使ってinputを作る
 
     // fileIndexの先頭の数字を使ってinputを作る
-    $('#image-box').append(buildFileField(fileIndex[0]));
+    $('#file-fields').append(buildFileField(fileIndex[0]));
     fileIndex.shift();
     // 末尾の数に1足した数を追加する
     fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
   });
+
+   
 
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index')
