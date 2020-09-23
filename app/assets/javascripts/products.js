@@ -14,15 +14,20 @@ $(function(){
   /* テキストを参考に追記 */
   const buildImg = (index, url)=> {
     const html = `<img class="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">`;
+      /*<br><div class="js-remove">削除</div>*/
     /*  #image-box*/
     /*    class="image-box"*/
     /*      class="image-box__button__delite" data-index="${indexLength}" 削除*/
-    /*const html = `
-    .image-box
-      <img>
+    
+    /*const html = `<ul id="previews">
+                    <li class="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">
+                      <div class=js-remove">削除</div>
+                    </li>
+                  </ul>`;*/
+    /*  <img>
       sakujyo
-      henshu
-    `;*/
+      nshu*/
+    /*`;</img>*/
     return html;
   }
 
@@ -68,8 +73,9 @@ $(function(){
   });
 
    
-
-  $('#image-box').on('click', '.js-remove', function() {
+  /*$('#image-box').on('click', '.js-remove', function() {*/
+  $('#file-fields').on('click', '.js-remove', function() {
+  /*$('.js-remove').on('click', '.js-remove', function() { */
     const targetIndex = $(this).parent().data('index')
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
