@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :category_children, :category_grandchildren]
 
 
   def index
@@ -9,7 +9,20 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @category_parent =  Category.where("ancestry is null")
     @item.images.new
+  end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def category_children
+    @category_children = Category.find("#{params[:parent_id]}").children
+    #親カテゴリーに紐付く子カテゴリーを取得
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    #子カテゴリーに紐付く孫カテゴリーの配列を取得
   end
 
   def create

@@ -1,10 +1,23 @@
-body{
+.header_FURIMA{
   background-color: #f8f8f8;
+  .header__logo {
+    margin-left: 650px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    .furima_logo {
+  width: 214px;
+  height: 62px;
+}
+  }
 }
 
-img{
-  padding-left: 610px;
-  padding-top: 10px;
+// img{
+//   padding-left: 610px;
+//   padding-top: 10px;
+// }
+
+.main {
+  padding-bottom: 20px;
 }
 
 ._form{
@@ -13,11 +26,37 @@ img{
   padding-left: 220px;
   border: solid 1px;
   background-color: #ffffff;
+  .field{
+    padding-top: 26px;
+    .form-group__input{
+      width: 300px;
+      height: 28px;
+    }
+  }
+  .actions{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    .user__main__form__contents__submit__btn{
+      font-size: 16px;
+      width: 341px;
+      height: 48px;
+      margin: 0 auto;
+      background-color: #3CCACE;
+      color: #ffffff;
+      text-align: center;
+      line-height: 48px;
+      border: none;
+    }
+  }
 }
 
-.field{
-  padding-top: 26px;
+.login_page_main{
+  height: 500px;
+  background-color: #f8f8f8;
+  padding-top: 50px;
 }
+
+
 
 .form-group__require{
   font-size: 8px;
@@ -29,24 +68,13 @@ img{
   vertical-align: top;
 }
 
-.user__main__form__contents__submit__btn{
-  font-size: 16px;
-  width: 341px;
-  height: 48px;
-  margin: 0 auto;
-  background-color: #3CCACE;
-  color: #ffffff;
-  text-align: center;
-  line-height: 48px;
-  border: none;
+
+.Completion_registration {
+  font-size: 40px;
+  margin-left: 600px;
 }
 
-.actions{
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.form-group__input{
-  width: 300px;
-  height: 28px;
+.top_path {
+  margin-left: 680px;
+  font-size: 30px;
 }

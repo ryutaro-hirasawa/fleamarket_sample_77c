@@ -19,7 +19,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @sending_destinations = @user.build_sending_destination
-    render :new_sending_destinations
+    redirect_to sending_destinations_path
+  end
+
+  def new_sending_destinations
+    @sending_destinations = SendingDestination.new
   end
 
   def create_sending_destinations
