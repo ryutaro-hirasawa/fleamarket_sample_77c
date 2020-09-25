@@ -7,7 +7,6 @@
 
 .ItemNew__Box {
   width: 100vw;
-  /* height: 2300px; */
   background-color: rgb(245, 245, 245);
 
   .ItemNew__Header {
@@ -35,18 +34,14 @@
       padding-top: 0;
     }
 
-
   .ItemNew-Maim {
     width: 600px;
-    // /* height: 2200px; */
     margin: 0px auto;
   }
   .ItemNew-Center {
       width: 600px;
-      /* height: 2050px; */
       padding: 50px 30px 50px 30px;
       background-color: white;
-
 
     .ItemEntry {
       padding-top: 50px;
@@ -73,17 +68,17 @@
     width: 600px;
     min-height: 100px;
     background-color: rgb(245, 245, 245);
-    #image-box {
+    .image-box {
       padding-right: 10px;
-      /* height: 240px; */
+      height: 240px;
     }
   }
   .js-file {
     display: none;
   }
-  /*.js-file_group {
-    display: none;
-  }*/
+  #previews {
+    display: flex;
+  }
 
   .ItemNew-name {
     width: 600px;

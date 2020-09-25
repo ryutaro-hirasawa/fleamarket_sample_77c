@@ -16,7 +16,7 @@
           %h.ItemEntry__text 商品画像
           %span.ItemEntry__require 必須
           %br
-          最大10枚までアップロードできます
+          最大5枚までアップロードできます
 
         .ItemNew-Img
           #image-box
@@ -29,13 +29,13 @@
             .js-file_group{"data-index" => "#{image.index}"}
               = image.file_field :src, class: 'js-file'
               %br
-              %span.js-remove 削除
+              /*%span.js-remove 削除*/
             - if @item.persisted?
               = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
           - if @item.persisted?
             .js-file_group{"data-index" => "#{@item.images.count}"}
               = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-            .js-remove 削除
+            /*.js-remove 削除*/
             /*=link_to '削除', item_path(item), method: :delete*/
         
 
@@ -91,7 +91,7 @@
         /*= f.select :preparation_day_id, [["1~2日で発送", "1"], ["2~3日で発送", "2"], ["4~7日で発送", "3"]], id: 'item_preparation_day_id'
         = f.collection_select :preparation_day_id, Preparation.all, :id, :name, prompt: "選択してください", class: 'input'
 
-        .p 価格(¥9,999,999,999)
+        .p 価格(¥9,999,999)
         .ItemEntry-price
           %h.ItemEntry__text 販売価格
           %span.ItemEntry__require 必須

@@ -5,29 +5,15 @@ $(function(){
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][src]"
-                    id="item_images_attributes_${index}_src"><br>
-                    <div class="js-remove">削除</div>
+                    id="item_images_attributes_${index}_src">
+                    
                   </div>`;
     return html;
   }
 
   /* テキストを参考に追記 */
   const buildImg = (index, url)=> {
-    const html = `<img class="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">`;
-      /*<br><div class="js-remove">削除</div>*/
-    /*  #image-box*/
-    /*    class="image-box"*/
-    /*      class="image-box__button__delite" data-index="${indexLength}" 削除*/
-    
-    /*const html = `<ul id="previews">
-                    <li class="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">
-                      <div class=js-remove">削除</div>
-                    </li>
-                  </ul>`;*/
-    /*  <img>
-      sakujyo
-      nshu*/
-    /*`;</img>*/
+    const html = `<img class="preview-image" data-index="${index}" src="${url}" width="120px" height="100px">`;
     return html;
   }
 
@@ -42,7 +28,7 @@ $(function(){
   $('.ItemNew-Img').on('click', function(e) {
     const previewImages = $('.preview-image');
     /*console.log(previewImages.length);*/
-    if(previewImages.length >= 10){
+    if(previewImages.length >= 5){
       alert('limit');
       return false;
     }
