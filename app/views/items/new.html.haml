@@ -75,7 +75,7 @@
         .ItemEntry
           %h.ItemEntry__text 商品の状態
           %span.ItemEntry__require 必須
-        = f.collection_select :item_item_condition_id, Itemcondition.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
+        = f.collection_select :item_condition_id, Itemcondition.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
         .error-messages#error-category
 
         .p 発送について
@@ -83,17 +83,17 @@
         .ItemEntry
           %h.ItemEntry__text 配送料の負担
           %span.ItemEntry__require 必須
-        = f.collection_select :postage_payer_id, Postage.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
+        = f.collection_select :postage_payer_id, Postage.all, :id, :name,{prompt: "選択して下さい"},{ class: 'input', required: "required"}
 
         .ItemEntry
           %h.ItemEntry__text 発送元の地域
           %span.ItemEntry__require 必須
-        = f.collection_select :prefecture_code_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
+        = f.collection_select :prefecture_code_id, Prefecture.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
         
         .ItemEntry
           %h.ItemEntry__text 発送までの日数
           %span.ItemEntry__require 必須
-        = f.collection_select :preparation_day_id, Preparation.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
+        = f.collection_select :preparation_day_id, Preparation.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
 
         .p 価格(¥9,999,999)
         .ItemEntry-price
