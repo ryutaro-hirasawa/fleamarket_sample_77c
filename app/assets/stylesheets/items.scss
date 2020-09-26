@@ -42,11 +42,11 @@
   }
   .ItemNew-Center {
       width: 600px;
-      padding: 50px 30px 50px 30px;
+      padding: 10px 30px 50px 30px;
       background-color: white;
 
     .ItemEntry {
-      padding-top: 50px;
+      padding-top: 30px;
       &__require {
         background-color: red;
         color: white;
@@ -62,7 +62,7 @@
     }
 
     .p {
-      padding-top: 50px;
+      padding-top: 30px;
       color: gray;
     }
   }

@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    
+    @category_parent =  Category.where("ancestry is null")
     if @item.save
       redirect_to root_path
     else

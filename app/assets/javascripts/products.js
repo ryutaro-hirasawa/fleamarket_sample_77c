@@ -75,4 +75,17 @@ $(function(){
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
 
   });
+
+  /*$('#error-category').before(`<div class="sell-collection_select " id="select-children-box"> {
+    <label class="sell-collection_select__label" for="item_category_id">
+      <select class="sell-collection_select__input" id="category-select-children" required="required" name="item[category_id]">
+        <option value="">選択して下さい</option>
+        ${optionHtml}
+      </select>
+    </label>
+  </div>`
+  });*/
+
+
+
 });

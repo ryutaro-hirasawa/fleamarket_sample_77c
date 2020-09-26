@@ -44,12 +44,12 @@
         .ItemEntry
           %h.ItemEntry__text 商品名
           %span.ItemEntry__require 必須
-        = f.text_field :name, {placeholder: '入力してください', class:'ItemNew-name'}
+        = f.text_field :name, {placeholder: '入力してください', class:'ItemNew-name', required: "required"}
 
         .ItemEntry
           %h.ItemEntry__text 商品の説明
           %span.ItemEntry__require 必須
-        = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction'}
+        = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction', required: "required"}
 
         .p 商品の詳細
 
@@ -75,31 +75,32 @@
         .ItemEntry
           %h.ItemEntry__text 商品の状態
           %span.ItemEntry__require 必須
-        = f.collection_select :item_condition_id, Itemcondition.all, :id, :name, prompt: "選択してください", class: 'input'
+        = f.collection_select :item_item_condition_id, Itemcondition.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
+        .error-messages#error-category
 
         .p 発送について
 
         .ItemEntry
           %h.ItemEntry__text 配送料の負担
           %span.ItemEntry__require 必須
-        = f.collection_select :postage_payer_id, Postage.all, :id, :name, prompt: "選択してください", class: 'input'
+        = f.collection_select :postage_payer_id, Postage.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
 
         .ItemEntry
           %h.ItemEntry__text 発送元の地域
           %span.ItemEntry__require 必須
-        = f.collection_select :prefecture_code_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input'
+        = f.collection_select :prefecture_code_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
         
         .ItemEntry
           %h.ItemEntry__text 発送までの日数
           %span.ItemEntry__require 必須
-        = f.collection_select :preparation_day_id, Preparation.all, :id, :name, prompt: "選択してください", class: 'input'
+        = f.collection_select :preparation_day_id, Preparation.all, :id, :name, prompt: "選択してください", class: 'input', required: "required"
 
         .p 価格(¥9,999,999)
         .ItemEntry-price
           %h.ItemEntry__text 販売価格
           %span.ItemEntry__require 必須
         ¥
-        = f.text_field :price, {placeholder: '0', class:'ItemNew-price'}
+        = f.text_field :price, {placeholder: '0', class:'ItemNew-price', required: "required"}
 
         .actions
           = f.submit '出品する', class: 'Submit-btn'
