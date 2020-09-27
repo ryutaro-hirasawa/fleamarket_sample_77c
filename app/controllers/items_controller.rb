@@ -27,9 +27,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @category_parent =  Category.where("ancestry is null")
+    
     if @item.save
+      flash[:notice] = '出品を完了しました'
       redirect_to root_path
     else
+      flash.now[:alert] = '出品に失敗しました'
       render :new
     end
   end
@@ -42,9 +46,18 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    @item = Item.find(params[item_params])
+    if @item.destroy
+      flash[:notice] = '削除完了しました'
+      redirect_to root_path
+    else
+      flash.now[:alert] = '削除に失敗しました'
+      redirect_to root_path
+    end
+  end
 
-  
+  private
 
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :prefecture_code_id, :preparation_day_id, :price, images_attributes:  [:src, :_destroy, :id]).merge(seller_id: current_user.id)
