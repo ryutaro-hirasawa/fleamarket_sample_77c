@@ -1,5 +1,3 @@
-
-
 .ItemNew__Box
 
   .ItemNew__Header
@@ -12,6 +10,8 @@
 
     .ItemNew-Center
       = form_with(model: @item, local: true) do |f|
+        -# - console           //コンソール
+        -# = f.object.errors.  //エラーメッセージの実装予定
         .ItemEntry
           %h.ItemEntry__text 商品画像
           %span.ItemEntry__require 必須
@@ -36,15 +36,7 @@
             .js-file_group{"data-index" => "#{@item.images.count}"}
               = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
             /*.js-remove 削除*/
-            /*=link_to '削除', item_path(item), method: :delete*/
-
-        -# .notifications
-        -#   - flash.each do |key, value|
-        -#     = content_tag(:div, value, class: key)
-        -# = yield
-
-
-
+            /*=link_to '削除', item_path(item), method: :delete*/  /実装予定
 
         .ItemEntry
           %h.ItemEntry__text 商品名
@@ -57,7 +49,6 @@
         = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction', required: "required"}
 
         .p 商品の詳細
-
 
         .ItemEntry
           .sell-container__content
@@ -115,5 +106,3 @@
           = link_to 'もどる', root_path, class: 'Return-btn'
 
   .ItemNew__Hooter
-
-   
