@@ -1,5 +1,4 @@
-app_path = File.expand_path('../../', __dir__)
-# app_path = "/var/www/fleamarket_sample_77c"
+app_path = File.expand_path('../../../', __FILE__)
 worker_processes 1
 
 working_directory "#{app_path}/current"
