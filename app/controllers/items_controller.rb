@@ -30,8 +30,10 @@ class ItemsController < ApplicationController
     @category_parent =  Category.where("ancestry is null")
     
     if @item.save
+      flash[:notice] = '出品を完了しました'
       redirect_to root_path
     else
+      flash.now[:alert] = '出品に失敗しました'
       render :new
     end
   end
