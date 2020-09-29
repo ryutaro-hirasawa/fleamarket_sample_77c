@@ -11,7 +11,8 @@
     .ItemNew-Center
       = form_with(model: @item, local: true) do |f|
         -# - console           //コンソール
-        -# = f.object.errors.  //エラーメッセージの実装予定
+        - if f.object.errors.any?
+          = f.object.errors.full_messages[0]  #エラーメッセージの実装予定
         .ItemEntry
           %h.ItemEntry__text 商品画像
           %span.ItemEntry__require 必須
