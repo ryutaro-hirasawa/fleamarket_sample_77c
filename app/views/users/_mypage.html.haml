@@ -38,16 +38,30 @@
       .productList
         =link_to "/items/show" do
           %figure.productList--img
-            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-          .productList--body
-            %h3.name product1
-            .details
-              %ul
-                %li 30000円
-                %li
+            -# - @images.each do |image|
+            -#   .productList_image{:style => "background-image: url(#{images.src});"}
+            -#     = simple_format(image.text)
+
+            - @items.each do |item|
+              .productList--body
+                %span.name
+                  = item.name
+                %span.price
+                  = item.price 
+                  円（税込）
                   %i.fa.fa-star.likeIcon
                   0
-              %p (税込)
+              %p
+            -# = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          -# .productList--body
+          -#   %h3.name product1
+          -#   .details
+          -#     %ul
+          -#       %li 30000円
+          -#       %li
+          -#         %i.fa.fa-star.likeIcon
+          -#         0
+          -#     %p (税込)
       .productList
         =link_to "/products/2" do
           %figure.productList--img
