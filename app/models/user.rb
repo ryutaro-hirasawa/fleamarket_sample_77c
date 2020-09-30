@@ -13,5 +13,5 @@ class User < ApplicationRecord
   validates :nickname,:first_name,:family_name,:birth_day, presence: true
   validates :first_name_kana,:family_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
   has_one :sending_destination
-  has_one :credit_card, dependent: :destroy
+  has_one :card, dependent: :destroy
 end

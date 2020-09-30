@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'cards/new'
-  get 'cards/show'
   devise_for :users,controllers: {
     registrations: 'users/registrations',
   }
@@ -15,5 +13,6 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults: { format: 'json' }
     end
   end
-  resources :users, :only => [:show]
+  resources :cards, only: [:new, :create, :show, :destroy] do
+  end
 end
