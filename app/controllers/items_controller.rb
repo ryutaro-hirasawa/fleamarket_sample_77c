@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
       flash[:notice] = '出品を完了しました'
       redirect_to root_path
     else
-      # binding.pry
       flash.now[:alert] = '出品に失敗しました'
       render :new
     end
