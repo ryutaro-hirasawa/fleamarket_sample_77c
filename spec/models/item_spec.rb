@@ -1,35 +1,24 @@
 require 'rails_helper'
 
 describe Item do
-
+  
   # item = Item.new(name: "商品", introduction: "ホワイト", category_id: "1", item_condition_id: "1", postage_payer_id: "1", prefecture_code_id: "1", preparation_day_id: "1", price: "3000",)
-  item = FactoryBot.build(:item)
+  before do 
+    @item = FactoryBot.build(:item)
+  end
 
   describe '#create' do
 
-    # it  "name と introduction, category_id, item_condition_id, postage_payer_id, prefecture_code_id, preparation_day_id, price があれば登録できること" do
-    # item = build(:item)
-    #   expect(item).to be_valid
-    # end
-    
-
-
-    # it "必須項目が全て存在すれば登録できること" do
-    #   item = build(:item)
-    #   expect(item).to be_valid
-    # end
-
-    # it "brandが存在すれば登録できること" do
-    #   item = build(:item, brand: "nike")
-    #   expect(item).to be_valid
-    # end
-    
-    it "nameがない場合は登録できないこと" do
-      item = build(:item, name: nil)
-      item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+    it  "name と introduction, category_id, item_condition_id, postage_payer_id, prefecture_code_id, preparation_day_id, price があれば登録できること" do
+      @item.images.new(src: "test.jpeg")
+      expect(@item).to be_valid
     end
 
+    it "nameがない場合は登録できないこと" do
+      @item.name = nil
+      @item.valid?
+      expect(@item.errors[:name]).to include("can't be blank")
+    end
 
     it "introductionがない場合は登録できないこと" do
       item = build(:item, introduction: nil)
@@ -73,7 +62,6 @@ describe Item do
       expect(item.errors[:price ]).to include("can't be blank")
     end
 
-
   end
 end
 
@@ -81,4 +69,3 @@ end
 #   pending "add some examples to (or delete) #{__FILE__}"
 
 # end
-
