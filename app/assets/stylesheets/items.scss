@@ -21,12 +21,12 @@
       align-items: center;
       display: flex;
       justify-content: center;
-    }
+  }
 
     a {
       display: block;
       height: 46px;
-      width: 144px;
+      width: 120px;
     }
 
     img {
@@ -40,7 +40,7 @@
     .ItemNew-Maim {
     width: 600px;
     margin: 0px auto;
-  }
+    }
   .ItemNew-Center {
       width: 600px;
       padding: 10px 30px 50px 30px;
@@ -69,20 +69,42 @@
   }
   .ItemNew-Img {
     width: 600px;
-    min-height: 100px;
-    background-color: rgb(245, 245, 245);
+    min-height: 10px;
     .image-box {
       padding-right: 10px;
       height: 240px;
     }
   }
+  .ItemNew-Select {
+  width: 600px;
+  height: 50px;
+  background-color: rgb(245, 245, 245);
+  padding-top: 5px;
+    .sellBtn2 {
+      height: 24px;
+      width: 24px;
+      padding-left: 270px;
+      padding-top: 10px;
+      .fa-fa-camera {
+        color: black;
+      }
+    }
+  } 
+}
+.item-image__js-remove {
+  display: block;
+  text-align: center;
+  width: 120px;
+}
   .js-file {
     display: none;
   }
   #previews {
     display: flex;
   }
-
+  #file-fields {
+    display: none;
+  }
   .ItemNew-name {
     width: 600px;
     height: 30px;
@@ -99,15 +121,13 @@
     width: 600px;
     height: 30px;
   }
-
   select{
     width: 600px;
     height: 40px;
   }
- 
   .ItemNew-price {
-    width: 570px;
-    height: 40px;
+    width: 580px;
+    height: 43px;
     text-align: right;
     font-size: 20px;
   }
@@ -125,5 +145,3 @@
     text-align: center;
     color: black;
   }
-
-}

@@ -1,14 +1,17 @@
 $(function(){
   const buildFileField = (index)=> {
+      // 画像用のinputを生成する関数
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][src]"
-                    id="item_images_attributes_${index}_src">
+                    id="item_images_attributes_${index}_src"><br>
+                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
   const buildImg = (index, url)=> {
-    const html = `<img class="preview-image" data-index="${index}" src="${url}" width="120px" height="100px">`;
+    const html = `<div class="item-image"><img class="preview-image" data-index="${index}" src="${url}" width="120px" height="100px">
+    <button class="item-image__js-remove">削除</button></div>`;
     return html;
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
@@ -17,8 +20,10 @@ $(function(){
 
   $('.hidden-destroy').hide();
 
-  $('.ItemNew-Img').on('click', function(e) {
+
+  $('.ItemNew-Select').on('click', function(e) {
     const previewImages = $('.preview-image');
+    
     if(previewImages.length >= 5){
       alert('limit');
       return false;
@@ -41,13 +46,21 @@ $(function(){
     }
   });
 
-  $('#file-fields').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index')
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  $('#previews').on('click', '.item-image__js-remove', function() {
+    console.log("test")
+    // const targetIndex = $(this).parent().data('index')
+    // const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    // if (hiddenCheck) hiddenCheck.prop('checked', true);
+    // $(this).parent().remove();
+    // $(`img[data-index="${targetIndex}"]`).remove();
+    // if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    
+    // 削除ボタンを押した画像を取得
+    var target_image = $(this).parent();
+    // 削除画像のdata-image番号を取得
+    var target_image_num = target_image.data('image');
+    // 対象の画像をビュー上で削除
+    target_image.remove();
   });
 
 });
