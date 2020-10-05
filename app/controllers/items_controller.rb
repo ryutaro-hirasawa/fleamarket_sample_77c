@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create, :show, :category_children, :category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create, :category_children, :category_grandchildren]
 
 
   def index
