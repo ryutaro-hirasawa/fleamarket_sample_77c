@@ -35,14 +35,10 @@
         %h3
           = link_to '最近出品された商品'
     .productLists
-      -# .productList
-        -# =link_to "/items/show" do
-        -# %figure.productList--img
       - @items.each do |item|
         .productList--body
           %span.images
-            - item.images.each do |image|
-              =image_tag "#{image.src}"
+            = image_tag item.images[0].src.url
           %span.name
             = item.name
           %span.price
