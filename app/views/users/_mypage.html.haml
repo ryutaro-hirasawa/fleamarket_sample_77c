@@ -41,8 +41,9 @@
       - @items.each do |item|
         .productList--body
           %span.images
-            - item.images.each do |image|
-              =image_tag "#{image.src}"
+            = image_tag item.images[0].src.url
+            -# - item.images.each do |image|
+            -#   =image_tag "#{image.src}"
           %span.name
             = item.name
           %span.price
