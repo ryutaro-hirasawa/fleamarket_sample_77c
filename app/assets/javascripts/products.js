@@ -11,7 +11,7 @@ $(function(){
   }
   const buildImg = (index, url)=> {
     const html = `<div class="item-image"><img class="preview-image" data-index="${index}" src="${url}" width="120px" height="100px">
-    <button class="item-image__js-remove">削除</button></div>`;
+    <button class="item-image__js-remove" data-index="${index}">削除</button></div>`;
     return html;
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
@@ -47,7 +47,6 @@ $(function(){
   });
 
   $('#previews').on('click', '.item-image__js-remove', function() {
-    console.log("test")
     // const targetIndex = $(this).parent().data('index')
     // const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // if (hiddenCheck) hiddenCheck.prop('checked', true);
@@ -61,6 +60,13 @@ $(function(){
     var target_image_num = target_image.data('image');
     // 対象の画像をビュー上で削除
     target_image.remove();
+
+    var index_num = $(this).data('index');
+
+    var img_file = document.getElementById(`item_images_attributes_${index_num}_src`);
+    console.log(img_file)
+
+    img_file.remove();
   });
 
 });
