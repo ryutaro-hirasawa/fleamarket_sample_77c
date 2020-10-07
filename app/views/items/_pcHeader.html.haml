@@ -29,7 +29,7 @@
       %ul.listsRight
         - if user_signed_in?
           %li.listsRight-mypage
-            = link_to 'マイページ', "/users/show"
+            = link_to 'マイページ', user_path(current_user)
             -# = link_to  do
             -#   マイページ
           %li.listsRight-logout

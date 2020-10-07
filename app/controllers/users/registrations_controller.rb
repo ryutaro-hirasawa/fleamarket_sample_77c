@@ -66,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def sending_destinations_params
-    params.require(:sending_destination).permit(:post_code, :prefecture_code, :city, :house_number, :building_name, :phone_number)
+    params.require(:sending_destination).permit(:post_code, :prefecture_code_id, :city, :house_number, :building_name, :phone_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
