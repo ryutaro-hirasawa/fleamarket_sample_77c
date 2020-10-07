@@ -19,7 +19,7 @@
         = f.label :都道府県
         %span.form-group__require ＊必須
         %br/
-        = f.collection_select :prefecture_code, Prefecture.all, :id, :name
+        = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name
       
       .field
         = f.label :市区町村
@@ -40,6 +40,7 @@
       
       .field
         = f.label :電話番号
+        %span.form-group__require ＊必須
         %br/
         = f.text_field :phone_number,placeholder: "例) 09077773333",class:'form-group__input'
       
