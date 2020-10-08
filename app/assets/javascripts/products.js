@@ -47,19 +47,16 @@ $(function(){
   });
 
   $('#previews').on('click', '.item-image__js-remove', function() {
-    // const targetIndex = $(this).parent().data('index')
-    // const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    // if (hiddenCheck) hiddenCheck.prop('checked', true);
-    // $(this).parent().remove();
-    // $(`img[data-index="${targetIndex}"]`).remove();
-    // if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent();
+    console.log($(this));
     // 削除画像のdata-image番号を取得
     var target_image_num = target_image.data('image');
     // 対象の画像をビュー上で削除
     target_image.remove();
+    console.log(target_image);
+    console.log(target_image_num);
 
     var index_num = $(this).data('index');
 
@@ -67,6 +64,13 @@ $(function(){
     console.log(img_file)
 
     img_file.remove();
+    
+    var img_file_edit = document.getElementById(`item_images_attributes_${index_num}__destroy`);
+    console.log(img_file_edit)
+
+    $(img_file_edit).trigger("change").attr('checked', 'checked');
+// trigger
+
   });
 
 });

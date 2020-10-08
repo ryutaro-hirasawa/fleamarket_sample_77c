@@ -84,7 +84,6 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         redirect_to  root_path
       else
-        flash.now[:alert] = '更新できませんでした'
         render :edit
       end
     end
@@ -108,7 +107,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(4)
+    @item = Item.find(params[:id])
   end
 
   def category_parent_array
