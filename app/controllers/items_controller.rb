@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.includes(:images).order('created_at DESC')
+    @items = Item.all
   end
 
   def new
@@ -38,6 +39,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -47,7 +51,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[item_params])
+    @item = Item.find(params[:id])
     if @item.destroy
       flash[:notice] = '削除完了しました'
       redirect_to root_path

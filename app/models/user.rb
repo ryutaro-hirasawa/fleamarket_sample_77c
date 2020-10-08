@@ -14,4 +14,5 @@ class User < ApplicationRecord
   validates :first_name_kana,:family_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
   has_one :sending_destination
   has_one :card, dependent: :destroy
+  has_many :items
 end

@@ -43,27 +43,28 @@
 %nav.breadCrumbs
   %ul
     %li
-      = link_to "#" do
+      = link_to root_path do
         FURIMA
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        ベビー・キッズ
+        = @item.category.parent.parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        ベビー服(男の子用)  ~95cm
+        = @item.category.parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        アウター
+        = @item.category.name
     %li
       %i.fa.fa-angle-right
     %li
-      %p PS5
+      %p 
+      =@item.name
 
 .item-main
   .show-main
@@ -71,26 +72,30 @@
     .content-right
       .top-content
         .itemBox
-          %h2.itemBox__name PS5
+          %h2.itemBox__name 
+            =@item.name
           .itemBox__body
             %ul.itemBox__sub
               %li
-                = image_tag "https://realsound.jp/wp-content/uploads/2020/06/20200612-ps5-950x531.jpg", class: "topimg"
+                - @item.images.each_with_index do |image, i|
+                  -if i=== 0
+                    = image_tag image.src.url, class: "topimg"
             %ul.itemBox__sub
               %li
-                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", class: "leftimg"
-              %li
-                = image_tag "https://i.gzn.jp/img/2020/08/27/registration-invite-playstation-5-preorders/00_m.jpg", class: "rightimg"
+                - @item.images.each_with_index do |image, i|
+                  - if i > 0
+                    = image_tag image.src.url, class: "leftimg"
           .itemBox__price
             %span
-              ¥50000
+              ￥
+              = @item.price
             .itemBox__price-detail
               %span
                 (税込)
               %span
                 送料込み
           .itemDetail
-            まだこの世のどこにも存在していないPS5です！欲しくありませんか？何故あなたは持っているのですか？いつから私がPS5を持っていると錯覚していた！
+            =@item.introduction
           .table
             %table
               %tbody
@@ -98,50 +103,41 @@
                   %th
                     出品者
                   %td
-                    阿部さん
+                    = @item.seller.nickname
                 %tr
                   %th
                     カテゴリー
                   %td
-                    = link_to "#" do
-                      ベビー・キッズ
+                    = @item.category.parent.parent.name
                     %br/
-                    = link_to "#" do
-                      ベビー服(男の子用)  ~95cm
+                    = @item.category.parent.name
                     %br/
-                    = link_to "#" do
-                      アウター
+                    = @item.category.name
                 %tr
                   %th
                     ブランド
                   %td
-                    Sony
-                %tr
-                  %th
-                    商品のサイズ
-                  %td
-                    りんご3つ分
+                    =@item.brand
                 %tr
                   %th
                     商品の状態
                   %td
-                    新品/未使用
+                    =@item.item_condition.name
                 %tr
                   %th
                     配送料の負担
                   %td
-                    送料込み（出品者負担）
+                    =@item.postage_payer.name
                 %tr
                   %th
                     発送元の地域
                   %td
-                    = link_to "#" do
-                      大阪
+                    =@item.prefecture_code.name
                 %tr
                   %th
                     発送日の目安
                   %td
-                    1-2日で発送
+                    =@item.preparation_day.name
           .optionalArea
             %ul.optionalfav
               %li#likeBtn.optionalBtn.likeBtn
@@ -152,6 +148,9 @@
                 = link_to "#" do
                   %i.fa.fa-flag
                   不適切な商品の通報
+              - if user_signed_in? && current_user.id == @item.seller_id
+                %li.optionalBtn
+                  = link_to '削除', item_path(@item), method: :delete, data: {confirm: "この商品に関する情報を削除しますか？"}
         .commentBox
           .commentContents
           %ul

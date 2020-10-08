@@ -10,8 +10,8 @@
 
     .ItemNew-Center
       = form_with(model: @item, local: true) do |f|
-        -# - console           //コンソール
-        -# = f.object.errors.  //エラーメッセージの実装予定
+        - if f.object.errors.any?
+          = f.object.errors.full_messages[0]  #エラーメッセージの実装予定
         .ItemEntry
           %h.ItemEntry__text 商品画像
           %span.ItemEntry__require 必須
@@ -24,6 +24,12 @@
               - if @item.persisted?
                 - @item.images.each_with_index do |image, i|
                   = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+                .js-remove
+
+        .ItemNew-Select
+          .sellBtn2
+            = fa_icon 'camera'
+
         #file-fields
           = f.fields_for :images do |image|
             .js-file_group{"data-index" => "#{image.index}"}
@@ -72,7 +78,7 @@
         .ItemEntry
           %h.ItemEntry__text 商品の状態
           %span.ItemEntry__require 必須
-        = f.collection_select :item_condition_id, Itemcondition.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        = f.collection_select :item_condition_id, ItemCondition.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
         .error-messages#error-category
 
         .p 発送について
@@ -80,29 +86,27 @@
         .ItemEntry
           %h.ItemEntry__text 配送料の負担
           %span.ItemEntry__require 必須
-        = f.collection_select :postage_payer_id, Postage.all, :id, :name,{prompt: "選択して下さい"},{ class: 'input', required: "required"}
+        = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name,{prompt: "選択して下さい"},{ class: 'input', required: "required"}
 
         .ItemEntry
           %h.ItemEntry__text 発送元の地域
           %span.ItemEntry__require 必須
-        = f.collection_select :prefecture_code_id, Prefecture.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
         
         .ItemEntry
           %h.ItemEntry__text 発送までの日数
           %span.ItemEntry__require 必須
-        = f.collection_select :preparation_day_id, Preparation.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
 
-        .p 価格(¥9,999,999)
+        .p 価格(¥300 ~ ¥9,999,999)
         .ItemEntry-price
           %h.ItemEntry__text 販売価格
           %span.ItemEntry__require 必須
         ¥
-        = f.text_field :price, {placeholder: '0', class:'ItemNew-price', required: "required"}
-
+        = f.text_field :price, {placeholder: '¥300 ~ ¥9,999,999', class:'ItemNew-price', required: "required"}
+        
         .actions
           = f.submit '出品する', class: 'Submit-btn'
 
         .Return-btn
           = link_to 'もどる', root_path, class: 'Return-btn'
-
-  .ItemNew__Hooter

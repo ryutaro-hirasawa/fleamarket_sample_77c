@@ -58,6 +58,11 @@
   padding-top: 20px;
 }
 
+.topimg{
+  height: 450px;
+  width: 650px;
+}
+
 .leftimg {
   object-fit: cover;
   height: 100px;
@@ -187,9 +192,9 @@ ul.optional li.optionalBtn a:hover {
   background-color: #ffffff;
 }
 
-.productList:hover {
-  background-color: #f8f8f8;
-}
+// .productList:hover {
+//   background-color: #f8f8f8;
+// }
 
 
 
