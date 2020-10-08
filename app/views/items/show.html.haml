@@ -151,6 +151,8 @@
               - if user_signed_in? && current_user.id == @item.seller_id
                 %li.optionalBtn
                   = link_to '削除', item_path(@item), method: :delete, data: {confirm: "この商品に関する情報を削除しますか？"}
+                %li.optionalBtn
+                  = link_to '編集', edit_item_path(@item)
         .commentBox
           .commentContents
           %ul

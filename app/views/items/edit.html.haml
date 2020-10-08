@@ -9,7 +9,7 @@
   .ItemNew-Maim
 
     .ItemNew-Center
-      = form_with(model: @item, url: items_path, method: :PUT ,local: true) do |f|
+      = form_with(model: @item ,local: true) do |f|
         - if f.object.errors.any?
           = f.object.errors.full_messages[0]  #エラーメッセージの実装予定
         .ItemEntry
@@ -112,7 +112,7 @@
         = f.text_field :price, {placeholder: '0', class:'ItemNew-price', required: "required"}
 
         .actions
-          = f.submit '出品する', class: 'Submit-btn'
+          = f.submit '編集する', class: 'Submit-btn'
 
         .Return-btn
           = link_to 'もどる', root_path, class: 'Return-btn'
