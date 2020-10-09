@@ -32,7 +32,7 @@ ladies_child_array.each_with_index do |child, i|
   end
 end
 
-# レディース
+# メンズ
 man_child_array = ['トップス','ジャケット/アウター','パンツ','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計']
 #２階層目(子)のカテゴーを準備
 man_grandchild_array = [
