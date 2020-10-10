@@ -1,4 +1,7 @@
+
 $(function(){
+  console.log('test')
+
   const buildFileField = (index)=> {
       // 画像用のinputを生成する関数
     const html = `<div data-index="${index}" class="js-file_group">
@@ -22,6 +25,7 @@ $(function(){
 
 
   $('.ItemNew-Select').on('click', function(e) {
+    console.log('test2')
     const previewImages = $('.preview-image');
     
     if(previewImages.length >= 5){
@@ -29,6 +33,7 @@ $(function(){
       return false;
     }
     const fileField = $('input[type="file"]:last');
+    console.log(fileField)
     fileField.trigger('click');
   });
 
