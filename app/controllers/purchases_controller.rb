@@ -2,21 +2,20 @@ class PurchasesController < ApplicationController
   require "payjp"
 
   def buy
-    # 購入する商品を引っ張ってきます。
+    # 購入する商品を引っ張る
     @item = Item.find(params[:item_id])
-    # 商品ごとに複数枚写真を登録できるので、一応全部持ってきておきます。
+    # 商品ごとに写真を全部持ってくる
     @images = @item.images.all
 
-    # まずはログインしているか確認
+    # ログインしているか確認
     if user_signed_in?
       @user = current_user
-      # クレジットカードが登録されているか確認
+      # カード登録されているか確認
       if @user.card.present?
-        # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+        # credentials.yml.encに記載したAPI秘密鍵を呼び出す
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-        # ログインユーザーのクレジットカード情報を引っ張ってきます。
+        # ログインユーザーのクレジットカード情報を引っ張ってくる
         @card = Card.find_by(user_id: current_user.id)
-        # (以下は以前のcredit_cardsコントローラーのshowアクションとほぼ一緒です)
         # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
         customer = Payjp::Customer.retrieve(@card.customer_id)
         # カスタマー情報からカードの情報を引き出す
@@ -40,7 +39,6 @@ class PurchasesController < ApplicationController
         when "Discover"
           @card_src = "discover.png"
         end
-        # viewの記述を簡略化
         ## 有効期限'月'を定義
         @exp_month = @customer_card.exp_month.to_s
         ## 有効期限'年'を定義
@@ -48,7 +46,7 @@ class PurchasesController < ApplicationController
       else
       end
     else
-      # ログインしていなければ、商品の購入ができずに、ログイン画面に移動します。
+      # ログインしていなければ、商品の購入ができずに、ログイン画面に移動
       redirect_to user_session_path, alert: "ログインしてください"
     end
   end
@@ -66,12 +64,12 @@ class PurchasesController < ApplicationController
       # 同時に2人が同時に購入し、二重で購入処理がされることを防ぐための記述
       @item.with_lock do
         if current_user.card.present?
-          # ログインユーザーがクレジットカード登録済みの場合の処理
-          # ログインユーザーのクレジットカード情報を引っ張ってきます。
+          # ログインユーザーがカード登録済みの場合の処理
+          # ログインユーザーのカード情報を引っ張ってくる
           @card = Card.find_by(user_id: current_user.id)
-          # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+          # credentials.yml.encに記載したAPI秘密鍵を呼び出す
           Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-          #登録したカードでの、クレジットカード決済処理
+          #登録したカードでの決済処理
           charge = Payjp::Charge.create(
           # 商品(item)の値段を引っ張ってきて決済金額(amount)に入れる
           amount: @item.price,

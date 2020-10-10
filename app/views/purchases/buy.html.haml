@@ -1,7 +1,7 @@
 .buy
   .main_contents
     .main_details
-      -# 商品情報を部分テンプレートで共通化してます。今回は実装内容と逸れるので省略
+      -# 商品情報を部分テンプレートで共通化
       -# = render "purchases/shared/purchase_item_info.html.haml", item: @item, images: @images
     .purchase_registration
       .purchase_registration_main
@@ -9,12 +9,12 @@
           支払い金額   
         .amount
           = "#{@item.price}" + "円"
-      -# クレジットカードを登録済みの場合の表示
+      -# カードを登録済みの場合の表示
       - if @user.card.present?
         .purchase_function
           .card_info_title
             クレジットカード情報
-            -# クレジットカード情報を表示させます。
+            -# カード情報を表示
             .card_info
               .card_info__brand
                 = image_tag "cards/#{@card_src}", class: "card_info__brand__img", alt: @card_brand
