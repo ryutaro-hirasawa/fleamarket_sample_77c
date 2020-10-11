@@ -10,8 +10,13 @@
 
     .ItemNew-Center
       = form_with(model: @item, local: true) do |f|
-        - if f.object.errors.any?
-          = f.object.errors.full_messages[0]  #エラーメッセージの実装予定
+
+        - if @item.errors.any?
+          .alert.alert-warning
+            %ul
+              - @item.errors.full_messages.each do |message|
+                %li= message
+
         .ItemEntry
           %h.ItemEntry__text 商品画像
           %span.ItemEntry__require 必須
@@ -47,18 +52,17 @@
         .ItemEntry
           %h.ItemEntry__text 商品名
           %span.ItemEntry__require 必須
-        = f.text_field :name, {placeholder: '入力してください', class:'ItemNew-name', required: "required"}
+        = f.text_field :name, {placeholder: '入力してください', class:'ItemNew-name'}    # , required: "required" の採用を無しにした
 
         .ItemEntry
           %h.ItemEntry__text 商品の説明
           %span.ItemEntry__require 必須
-        = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction', required: "required"}
+        = f.text_field :introduction, {placeholder: '商品の説明 (色、素材、重さ、定価など)', class:'ItemNew-introduction'}
 
         .p 商品の詳細
 
         .ItemEntry
           .sell-container__content
-            %h3.sell-sub-head 商品の詳細
             .sell-container__content__details
               .sell-title
                 %h3.sell-title__text
@@ -67,7 +71,7 @@
                     必須
               .sell-collection_select
                 = f.label :category_id, {class: 'sell-collection_select__label'} do
-                  = f.collection_select :category_id, @category_parent, :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select-parent', required: "required"}
+                  = f.collection_select :category_id, @category_parent, :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select-parent'}
               .error-messages#error-category
 
         .ItemEntry
@@ -78,7 +82,7 @@
         .ItemEntry
           %h.ItemEntry__text 商品の状態
           %span.ItemEntry__require 必須
-        = f.collection_select :item_condition_id, ItemCondition.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        = f.collection_select :item_condition_id, ItemCondition.all, :id, :name,{prompt: "選択してください"},{class: 'input'}
         .error-messages#error-category
 
         .p 発送について
@@ -86,24 +90,24 @@
         .ItemEntry
           %h.ItemEntry__text 配送料の負担
           %span.ItemEntry__require 必須
-        = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name,{prompt: "選択して下さい"},{ class: 'input', required: "required"}
+        = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name,{prompt: "選択して下さい"},{ class: 'input'}
 
         .ItemEntry
           %h.ItemEntry__text 発送元の地域
           %span.ItemEntry__require 必須
-        = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        = f.collection_select :prefecture_code_id, PrefectureCode.all, :id, :name,{prompt: "選択してください"},{class: 'input'}
         
         .ItemEntry
           %h.ItemEntry__text 発送までの日数
           %span.ItemEntry__require 必須
-        = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name,{prompt: "選択してください"},{class: 'input', required: "required"}
+        = f.collection_select :preparation_day_id, PreparationDay.all, :id, :name,{prompt: "選択してください"},{class: 'input'}
 
         .p 価格(¥300 ~ ¥9,999,999)
         .ItemEntry-price
           %h.ItemEntry__text 販売価格
           %span.ItemEntry__require 必須
         ¥
-        = f.text_field :price, {placeholder: '¥300 ~ ¥9,999,999', class:'ItemNew-price', required: "required"}
+        = f.text_field :price, {placeholder: '¥300 ~ ¥9,999,999', class:'ItemNew-price'}
         
         .actions
           = f.submit '出品する', class: 'Submit-btn'

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Item do
   
-  # item = Item.new(name: "商品", introduction: "ホワイト", category_id: "1", item_condition_id: "1", postage_payer_id: "1", prefecture_code_id: "1", preparation_day_id: "1", price: "3000",)
   before do 
     @item = FactoryBot.build(:item)
   end
@@ -17,49 +16,49 @@ describe Item do
     it "nameがない場合は登録できないこと" do
       @item.name = nil
       @item.valid?
-      expect(@item.errors[:name]).to include("can't be blank")
+      expect(@item.errors[:name]).to include("を入力してください")
     end
 
     it "introductionがない場合は登録できないこと" do
       item = build(:item, introduction: nil)
       item.valid?
-      expect(item.errors[:introduction]).to include("can't be blank")
+      expect(item.errors[:introduction]).to include("を入力してください")
     end
 
     it "category_id がない場合は登録できないこと" do
-      item = build(:item, category_id: nil)
+      item = build(:item, category: nil)
       item.valid?
-      expect(item.errors[:category_id ]).to include("can't be blank")
+      expect(item.errors[:category ]).to include("を入力してください")
     end
 
     it "item_condition_id がない場合は登録できないこと" do
       item = build(:item, item_condition_id: nil)
       item.valid?
-      expect(item.errors[:item_condition_id ]).to include("can't be blank")
+      expect(item.errors[:item_condition_id ]).to include("を入力してください")
     end
 
     it "postage_payer_id がない場合は登録できないこと" do
       item = build(:item, postage_payer_id: nil)
       item.valid?
-      expect(item.errors[:postage_payer_id ]).to include("can't be blank")
+      expect(item.errors[:postage_payer_id ]).to include("を入力してください")
     end
 
     it "prefecture_code_id がない場合は登録できないこと" do
       item = build(:item, prefecture_code_id: nil)
       item.valid?
-      expect(item.errors[:prefecture_code_id ]).to include("can't be blank")
+      expect(item.errors[:prefecture_code_id ]).to include("を入力してください")
     end
 
     it "preparation_day_id がない場合は登録できないこと" do
       item = build(:item, preparation_day_id: nil)
       item.valid?
-      expect(item.errors[:preparation_day_id ]).to include("can't be blank")
+      expect(item.errors[:preparation_day_id ]).to include("を入力してください")
     end
 
     it "price がない場合は登録できないこと" do
       item = build(:item, price: nil)
       item.valid?
-      expect(item.errors[:price ]).to include("can't be blank")
+      expect(item.errors[:price ]).to include("を入力してください")
     end
 
   end
