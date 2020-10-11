@@ -25,8 +25,7 @@ class PurchasesController < ApplicationController
         @card_brand = @customer_card.brand
         case @card_brand
         when "Visa"
-          # 例えば、Pay.jpからとってきたカード情報の、ブランドが"Visa"だった場合は返り値として
-          # (画像として登録されている)Visa.pngを返す
+          # Pay.jpからとってきたカード情報の、画像を返す
           @card_src = "visa.png"
         when "JCB"
           @card_src = "jcb.png"
@@ -52,12 +51,10 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    #ちなみに見やすさ考慮し、before_actionなどのリファクタリングなどはあえてしてません。
     @item = Item.find(params[:item_id])
     @images = @item.images.all
 
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
-    # (２重で決済されることを防ぐ)
     if @item.purchases.present?
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
@@ -77,6 +74,7 @@ class PurchasesController < ApplicationController
           currency: 'jpy'
           )
         else
+          Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
           # ログインユーザーがクレジットカード登録されていない場合(Checkout機能による処理を行います)
           # APIの「Checkout」ライブラリによる決済処理の記述
           Payjp::Charge.create(
@@ -85,7 +83,7 @@ class PurchasesController < ApplicationController
           currency: 'jpy'
           )
         end
-      #購入テーブルに登録処理(今回の実装では言及しませんが一応、、、)
+      #購入テーブルに登録処理
       @purchase = Purchase.create(user_id: current_user.id, item_id: params[:item_id])
       end
     end
