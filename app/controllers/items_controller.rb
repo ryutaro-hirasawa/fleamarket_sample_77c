@@ -30,12 +30,14 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @category_parent =  Category.where("ancestry is null")
-    
-    if @item.save
+  
+    if @item.valid?
+      @item.save
       flash[:notice] = '出品を完了しました'
       redirect_to root_path
     else
-      flash.now[:alert] = '出品に失敗しました'
+      flash.now[:alert] = '出品に失敗しました'    # flash[:notice] = '出品に失敗しました' から変更
+      @item.images.build                       # redirect_to new_item_path          から変更
       render :new
     end
   end
