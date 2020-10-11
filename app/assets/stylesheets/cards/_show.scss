@@ -46,12 +46,12 @@
           margin: auto;
           margin-left: 30px;
           &__link {
-            border-radius: 40px;
-            border: 2px solid red;
-            background-color: red;
-            padding: 10px 40px 10px 40px;
             &__btn {
               color: white;
+              border-radius: 40px;
+              border: 2px solid red;
+              background-color: red;
+              padding: 20px 40px 20px 40px;
             }
           }
         }
