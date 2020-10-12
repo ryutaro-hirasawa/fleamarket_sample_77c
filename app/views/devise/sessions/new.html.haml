@@ -6,8 +6,8 @@
 
 .login_page_main
   ._form
-    = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
-    = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+    = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class:"facebook"
+    = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:"google"
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.label :メールアドレス
