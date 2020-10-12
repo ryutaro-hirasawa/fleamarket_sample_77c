@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   # 正規表現を変数に変換
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -14,4 +14,20 @@ class User < ApplicationRecord
   validates :first_name_kana,:family_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
   has_one :sending_destination
   has_many :items
+  has_many :sns_credentials
+
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+      email: auth.info.email,
+      password: Devise.friendly_token[0,20]
+    )
+
+    if user.persisted?
+      sns.user = user
+      sns.save
+    end
+    { user: user, sns: sns }
+  end
 end

@@ -7,6 +7,8 @@
 .main
   ._form
     %h2 会員情報入力
+    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
       .field
@@ -44,16 +46,19 @@
         %span.form-group__require 必須
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC/携帯でも可", class:'form-group__input'
-      .field
-        = f.label :パスワード
-        %span.form-group__require 必須
-        %br/
-        = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上の英数半角", class:'form-group__input'
-      .field
-        = f.label :パスワード（確認用）
-        %span.form-group__require 必須
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password",class:'form-group__input'
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .field
+          = f.label :パスワード
+          %span.form-group__require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上の英数半角", class:'form-group__input'
+        .field
+          = f.label :パスワード（確認用）
+          %span.form-group__require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password",class:'form-group__input'
       .field
         = f.label :自己紹介
         %br/
