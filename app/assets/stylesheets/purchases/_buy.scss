@@ -2,11 +2,6 @@
   .main_contents {
     max-width: 1000px;
     margin: 50px auto;
-    .main_details {
-      text-align: center;
-      font-weight: bold;
-      font-size: 20px;
-    }
     .purchase_registration {
       .purchase_registration_main {
         display: flex;
@@ -55,7 +50,6 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              &__title {}
               &__info {
                 margin-left: 10px;
               }

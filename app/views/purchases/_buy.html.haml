@@ -1,9 +1,7 @@
 .buy
   .main_contents
     .main_details
-      購入内容の確認
-      -# 商品情報を部分テンプレートで共通化
-      -# = render "purchases/shared/purchase_item_info.html.haml", item: @item, images: @images
+      = render "purchase_item_info.html.haml"
     .purchase_registration
       .purchase_registration_main
         .payment
