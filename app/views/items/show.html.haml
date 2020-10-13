@@ -154,16 +154,30 @@
                 %li.optionalBtn
                   = link_to '編集', edit_item_path(@item)
         .commentBox
-          .commentContents
-          %ul
-            = form_with(url: "#", local: true, method: :get) do |f|
-              = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
-              .note
-                %h1
-                  相手のことを考え丁寧なコメントを心がけましょう。
-                %h2
-                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              = f.submit"コメントする", class:"comment_btn"
+          - if user_signed_in?
+            .commentContents
+            %ul
+              = form_with(model: [@item, @comment], local: true) do |f|
+                = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
+                .note
+                  %h1
+                    相手のことを考え丁寧なコメントを心がけましょう。
+                  %h2
+                    不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                = f.submit"コメントする", class:"comment_btn"
+          - else
+            %h3
+              ＊コメントの投稿には新規登録/ログインが必要です
+          .comments
+            %h4 ＜コメント一覧＞
+            - if @comments
+              - @comments.each do |comment|
+                %p
+                  %strong
+                    =comment.user.nickname
+                    ：
+                  = comment.text
+
       %ul.links
         %li
           = link_to "#" ,class: "link-text" do

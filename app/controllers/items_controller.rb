@@ -42,6 +42,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
+  end
+
   def edit
     # ▼ ①ここで該当商品の子・孫カテゴリーを変数へ代入
     grandchild = @item.category

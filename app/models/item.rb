@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
 
   has_many :images, dependent: :destroy
+  has_many :comments
   belongs_to :seller, class_name: 'User'
   # 3行目の validates の代わりに 16行目の belongs_to :category で未入力項目のバリデーションとする
   belongs_to :category
