@@ -12,6 +12,8 @@ class Item < ApplicationRecord
 
   has_many :images, dependent: :destroy
   has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :favorites, through: :favorites, source: :user
   belongs_to :seller, class_name: 'User'
   # 3行目の validates の代わりに 16行目の belongs_to :category で未入力項目のバリデーションとする
   belongs_to :category
