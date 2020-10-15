@@ -11,7 +11,7 @@ $(function(){
   }
   const buildImg = (index, url)=> {
     const html = `<div class="item-image"><img class="preview-image" data-index="${index}" src="${url}" width="120px" height="100px">
-    <button class="item-image__js-remove" data-index="${index}">削除</button></div>`;
+    <button class="item-image__js-remove" data-index="${index}">削除</button><div class="item-image__js-edit" data-index="${index}">編集</div></div>`;
     return html;
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
@@ -72,5 +72,22 @@ $(function(){
 // trigger
 
   });
+
+  $('#previews').on('click', '.item-image__js-edit', function() {
+
+
+
+
+    var index_num = $(this).data('index');
+
+    var img_file = document.getElementById(`item_images_attributes_${index_num}_src`);
+    console.log(img_file)
+ 
+    $(img_file).trigger("click")
+
+
+  });
+
+
 
 });

@@ -5,7 +5,7 @@
         =link_to root_path do
           =image_tag "logo.png"
       .searchBox
-        = form_with(url: "#", local: true, method: :get, class: "searchBox__form") do |form|
+        = form_with url: search_items_path, local: true, method: :get, class: "searchBox__form" do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
           = button_tag type: "submit", class: "searchBox__form__btn" do
             .searchBox__icon
@@ -141,10 +141,9 @@
                   %td
                     =@item.preparation_day.name
           .optionalArea
-            %ul.optionalfav
-              %li#likeBtn.optionalBtn.likeBtn
-                %i.fa.fa-star
-                お気に入り 0
+            %ul
+              %li
+                =render partial: 'favorites/favorite',locals: {item: @item}
             %ul.optional
               %li.optionalBtn
                 = link_to "#" do
@@ -156,16 +155,30 @@
                 %li.optionalBtn
                   = link_to '編集', edit_item_path(@item)
         .commentBox
-          .commentContents
-          %ul
-            = form_with(url: "#", local: true, method: :get) do |f|
-              = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
-              .note
-                %h1
-                  相手のことを考え丁寧なコメントを心がけましょう。
-                %h2
-                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              = f.submit"コメントする", class:"comment_btn"
+          - if user_signed_in?
+            .commentContents
+            %ul
+              = form_with(model: [@item, @comment], local: true) do |f|
+                = f.text_area :text, placeholder: "コメント欄", rows: "5", class: "text"
+                .note
+                  %h1
+                    相手のことを考え丁寧なコメントを心がけましょう。
+                  %h2
+                    不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                = f.submit"コメントする", class:"comment_btn"
+          - else
+            %h3
+              ＊コメントの投稿には新規登録/ログインが必要です
+          .comments
+            %h4 ＜コメント一覧＞
+            - if @comments
+              - @comments.each do |comment|
+                %p
+                  %strong
+                    =comment.user.nickname
+                    ：
+                  = comment.text
+
       %ul.links
         %li
           = link_to "#" ,class: "link-text" do
