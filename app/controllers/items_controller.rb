@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :category_parent_array, only: [:new, :create, :edit]
-  before_action :set_item, except: [:index, :new, :create, :category_children, :category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create, :category_children, :category_grandchildren, :search]
   before_action :show_all_instance, only: [:show, :edit, :destroy]
 
   def index
@@ -92,6 +92,10 @@ class ItemsController < ApplicationController
       flash.now[:alert] = '削除に失敗しました'
       redirect_to root_path
     end
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
   end
 
   private
