@@ -87,20 +87,21 @@
       .productHead
         =link_to "#" do
           %h3.title 新規投稿商品
-      .productLists
-        - @items.each do |item|
-          .productList--body
-            %span.images
-              = link_to "items/#{item.id}" do
-                = image_tag item.images[0].src.url
-            %span.name
-              = item.name
-            %span.price
-              = item.price
-              円（税込）
-              %i.fa.fa-star.likeIcon
-                = Favorite.where(item_id: item.id).count
-          %p
+      - if user_signed_in?
+        .productLists
+          - @items.each do |item|
+            .productList--body
+              %span.images
+                = link_to "items/#{item.id}" do
+                  = image_tag item.images[0].src.url
+              %span.name
+                = item.name
+              %span.price
+                = item.price
+                円（税込）
+                %i.fa.fa-star.likeIcon
+                  = Favorite.where(item_id: item.id).count
+            %p
 
   %section.pickupContainer
     %h2.head ピックアップブランド
