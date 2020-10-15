@@ -41,3 +41,16 @@
           %li.listsRight-reg
             = link_to "/users/sign_up" do
               新規会員登録
+  .productLists
+  - @items.each do |item|
+    .productList--body
+      %span.images
+        = link_to "/items/#{item.id}" do
+          = image_tag item.images[0].src.url
+        %span.name
+          = item.name
+        %span.price
+          = item.price
+          円（税込）
+          %i.fa.fa-star.likeIcon
+            = Favorite.where(item_id: item.id).count

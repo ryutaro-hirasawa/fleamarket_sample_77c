@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
+      get 'search'
     end
   end
   resources :users, :only => [:show]
