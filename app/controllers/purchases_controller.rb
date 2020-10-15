@@ -52,7 +52,7 @@ class PurchasesController < ApplicationController
 
   def pay
     @item = Item.find(params[:item_id])
-    @images = @item.images.all
+    @images = @item.images
 
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     if @item.purchases.present?
