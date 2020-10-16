@@ -64,6 +64,8 @@
         = f.label :自己紹介
         %br/
         = f.text_field :introduction,class:'form-group__input'
+        .field
+          = recaptcha_tags
       .actions
         = f.submit "次へ進む",class:'user__main__form__contents__submit__btn'
 
