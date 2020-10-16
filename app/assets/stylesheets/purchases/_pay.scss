@@ -5,7 +5,7 @@
     .main_details {
       text-align:center;
       font-size: 30px;
-      .main_details__message {
+      &__message {
         padding-left: 35px; 
       }
     }

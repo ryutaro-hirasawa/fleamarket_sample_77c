@@ -3,13 +3,13 @@
     .main_details
       = render "purchase_item_info.html.haml"
     .purchase_registration
-      .purchase_registration_main
+      .purchase_registration__main
         .payment
           支払い金額   
         .amount
           = "#{@item.price}" + "円"
       -# カードを登録済みの場合の表示
-      - if @user.card.present?
+      - if current_user.card.present?
         .purchase_function
           .card_info_title
             クレジットカード情報

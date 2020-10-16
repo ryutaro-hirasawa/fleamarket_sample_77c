@@ -3,7 +3,7 @@
     max-width: 1000px;
     margin: 50px auto;
     .purchase_registration {
-      .purchase_registration_main {
+      &__main {
         display: flex;
         margin: 50px auto;
         max-width: 800px;
@@ -33,14 +33,14 @@
           padding: 20px;
           display: inline-flex;
           margin: 20px;
-          .card_info__brand {
+          &__brand {
             margin: auto;
             img { 
               width: 100px;
               margin: 20px;
             }
           }
-          .card_info__numbers {
+          &__numbers {
             font-size: 20px;
             .number {
               margin: 20px;

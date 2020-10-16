@@ -1,14 +1,14 @@
 .destoroy {
   max-width: 1000px;
   margin: 50px auto;
-  .destoroy__frame {
+  &__frame {
     text-align: center;
     font-size: 30px;
-    .destoroy__frame__message {
+    &__message {
       margin: 100px auto;
       padding-left: 60px; 
     }
-    .destoroy__frame__btns {
+    &__btns {
       display: flex;
       justify-content: center;
       a {

@@ -1,17 +1,18 @@
 class PurchasesController < ApplicationController
+  before_action :set_item
   require "payjp"
 
-  def buy
-    # 購入する商品を引っ張る
+  def set_item
     @item = Item.find(params[:item_id])
-    # 商品ごとに写真を全部持ってくる
-    @images = @item.images.all
+    @images = @item.images
+  end
+
+  def buy
 
     # ログインしているか確認
     if user_signed_in?
-      @user = current_user
       # カード登録されているか確認
-      if @user.card.present?
+      if current_user.card.present?
         # credentials.yml.encに記載したAPI秘密鍵を呼び出す
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
         # ログインユーザーのクレジットカード情報を引っ張ってくる
@@ -51,8 +52,6 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
-    @images = @item.images
 
     # 購入テーブル登録ずみ商品は２重で購入されないようにする
     if @item.purchases.present?

@@ -34,12 +34,12 @@
     }
 
     .expirationdate {
-      .expirationdate__details {
+      &__details {
         display: flex;
         margin-bottom: 10px;
         line-height: 15px;
       }
-      .expirationdate__choice {
+      &__choice {
         display: flex;
         margin-bottom: 20px;
         .card-default {
@@ -51,13 +51,13 @@
         }
         .month {
           display: flex;
-          .month-details {
+          &-details {
             margin: auto 5px;
           }
         }
         .year {
           display: flex;
-          .year-details {
+          &-details {
             margin: auto 5px;
           }
         }
@@ -66,12 +66,12 @@
 
     .securitycode {
       margin-bottom: 50px;
-      .securitycode__details {
+      &__details {
         display: flex;
         margin-bottom: 10px;
         line-height: 15px;
       }
-      .securitycode__cardsecurity {
+      &__cardsecurity {
         &__form {
           border-style: hidden;
           background-color: rgb(240, 240, 240);

@@ -1,6 +1,11 @@
 class CardsController < ApplicationController
+  before_action :set_card
 
   require "payjp"
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
 
   def new
     @card = Card.where(user_id: current_user.id)
@@ -19,15 +24,13 @@ class CardsController < ApplicationController
         metadata: {user_id: current_user.id}
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_token: customer.default_card)
-      if @card.save
-      else
+      unless @card.save
         redirect_to action: "create"
       end
     end
   end
 
   def show
-    @card = Card.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new" 
     else
@@ -56,7 +59,6 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card = Card.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new"
     else
@@ -64,8 +66,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
-      if @card.destroy
-      else
+      unless @card.destroy
         redirect_to cards_path(current_user.id), alert: "削除できませんでした。"
       end
     end

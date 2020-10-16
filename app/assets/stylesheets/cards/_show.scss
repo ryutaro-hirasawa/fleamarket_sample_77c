@@ -26,7 +26,7 @@
               margin: 20px 20px 20px 0px;
             }
           }
-          .credit_card_info__numbers {
+          &__numbers {
             .number {
               margin: 20px;
             }
@@ -35,7 +35,6 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              &__title {}
               &__info {
                 margin-left: 10px;
               }

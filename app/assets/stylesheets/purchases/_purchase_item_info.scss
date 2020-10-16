@@ -1,10 +1,10 @@
 .purchase_item_info {
   text-align: center;
-  .purchase_item_info__title {
+  &__title {
     font-weight: bold;
     font-size: 20px;
   }
-  .purchase_item_info__details {
+  &__details {
     border-radius: 30px;
     border: 2px solid #3ccace;
     padding: 20px 60px;
