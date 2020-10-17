@@ -2,11 +2,6 @@ class PurchasesController < ApplicationController
   before_action :set_item
   require "payjp"
 
-  def set_item
-    @item = Item.find(params[:item_id])
-    @images = @item.images
-  end
-
   def buy
 
     # ログインしているか確認
@@ -87,4 +82,12 @@ class PurchasesController < ApplicationController
       end
     end
   end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+    @images = @item.images
+  end
+  
 end
