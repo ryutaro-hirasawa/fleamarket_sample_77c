@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation_day
 
   has_many :images, dependent: :destroy
+  has_many :purchases
   has_many :comments
   has_many :favorites, dependent: :destroy
   has_many :favorites, through: :favorites, source: :user

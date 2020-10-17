@@ -79,12 +79,38 @@
 .itemBox__price{
   text-align: center;
   padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  >span{
+    font-weight: bold;
+    font-size: 40px;
+  }
+  &-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    span {
+      margin-bottom: 10px;
+    }
+  }
 }
 
-.itemBox__price>span{
-  font-weight: bold;
-  font-size: 40px;
+.itemBox__purchase-Btn {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  a {
+    font-weight: bold;
+    background-color: #3ccace;
+    color: white;
+    border-radius: 40px;
+    padding: 10px 200px 10px 200px;
+    font-size: 30px;
+  }
 }
+
+
 .table{
   padding-top: 15px;
 }

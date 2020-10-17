@@ -94,6 +94,8 @@
                 (税込)
               %span
                 送料込み
+          .itemBox__purchase-Btn
+            = link_to "購入画面に進む", buy_item_purchases_path(item_id: @item.id), method: :get, class: "btn"
           .itemDetail
             =@item.introduction
           .table
