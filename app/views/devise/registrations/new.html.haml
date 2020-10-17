@@ -7,9 +7,11 @@
 .main
   ._form
     %h2 会員情報入力
+    %br.sns
+      = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: "facebook"
+      = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "google"
+      = link_to 'Yahoo IDで登録', user_yahoojp_omniauth_authorize_path, method: :post, class: "yahoo"
     %br
-    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: "facebook"
-    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "google"
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
       .field

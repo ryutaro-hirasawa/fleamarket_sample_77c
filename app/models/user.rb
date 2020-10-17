@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :yahoojp]
 
   # 正規表現を変数に変換
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -32,5 +32,18 @@ class User < ApplicationRecord
       sns.save
     end
     { user: user, sns: sns }
+  end
+
+  def self.find_for_yahoo_jp(auth)
+    user = User.where(email: auth.info.email, provider: auth.provider).first
+    unless user
+      user = User.create!(nickname: auth.info.name,
+                          provider: auth.provider,
+                          email: auth.info.email,
+                          uid: auth.uid,
+                          token: auth.credentials.token,
+                          password: Devise.friendly_token[0, 20])
+    end
+    user
   end
 end

@@ -89,6 +89,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'omniauth-facebook'
+gem 'omniauth-yahoojp'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'recaptcha', require: "recaptcha/rails"
