@@ -3,9 +3,7 @@ class CardsController < ApplicationController
 
   require "payjp"
 
-  def set_card
-    @card = Card.find_by(user_id: current_user.id)
-  end
+
 
   def new
     @card = Card.where(user_id: current_user.id)
@@ -71,4 +69,11 @@ class CardsController < ApplicationController
       end
     end
   end
+
+  private
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+  
 end
