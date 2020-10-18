@@ -72,6 +72,12 @@
               .sell-collection_select
                 = f.label :category, {class: 'sell-collection_select__label'} do
                   = f.collection_select :category, @category_parent, :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select-parent'}
+                  
+                - if @item.category_id.present?
+                
+                  = f.collection_select :category, @category_children, :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select-children'}
+                  = f.collection_select :category, @category_grandchildren, :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select-grandchildren'}
+
               .error-messages#error-category
 
         .ItemEntry
