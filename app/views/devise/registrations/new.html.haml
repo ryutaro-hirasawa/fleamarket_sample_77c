@@ -7,8 +7,9 @@
 .main
   ._form
     %h2 会員情報入力
-    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+    %br
+    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, class: "facebook"
+    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "google"
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
       .field
@@ -63,6 +64,8 @@
         = f.label :自己紹介
         %br/
         = f.text_field :introduction,class:'form-group__input'
+        .field
+          = recaptcha_tags
       .actions
         = f.submit "次へ進む",class:'user__main__form__contents__submit__btn'
 

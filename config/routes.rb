@@ -9,11 +9,22 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items, only:[:show,:new, :create, :edit, :update, :destroy] do
+    resources :favorites, only: [:index, :create, :destroy]
     resources :comments, only: :create
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
+      get 'search'
+    end
+
+    resource :purchases do
+      member do
+        get  "buy"
+        post "pay"
+      end
     end
   end
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
+  resources :cards, only: [:new, :create, :show, :destroy] do
+  end
 end

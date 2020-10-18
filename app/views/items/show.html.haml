@@ -5,7 +5,7 @@
         =link_to root_path do
           =image_tag "logo.png"
       .searchBox
-        = form_with(url: "#", local: true, method: :get, class: "searchBox__form") do |form|
+        = form_with url: search_items_path, local: true, method: :get, class: "searchBox__form" do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
           = button_tag type: "submit", class: "searchBox__form__btn" do
             .searchBox__icon
@@ -93,7 +93,14 @@
               %span
                 (税込)
               %span
-                送料込み
+          -if @item.purchases.present?
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
+          -else
+            - if @item.seller.id != current_user.id
+              .itemBox__purchase-Btn
+                = link_to "購入画面に進む", buy_item_purchases_path(item_id: @item.id), method: :get, class: "btn"
           .itemDetail
             =@item.introduction
           .table
@@ -139,10 +146,9 @@
                   %td
                     =@item.preparation_day.name
           .optionalArea
-            %ul.optionalfav
-              %li#likeBtn.optionalBtn.likeBtn
-                %i.fa.fa-star
-                お気に入り 0
+            %ul
+              %li
+                =render partial: 'favorites/favorite',locals: {item: @item}
             %ul.optional
               %li.optionalBtn
                 = link_to "#" do

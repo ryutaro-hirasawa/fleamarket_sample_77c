@@ -181,3 +181,23 @@
     text-align: center;
     color: black;
   }
+
+  .items-box_photo__sold{
+    width: 0;
+    height: 0;
+    border-top: 80px solid #ea352d ;
+    border-right: 80px solid transparent;
+    border-bottom: 80px solid transparent;
+    border-left: 80px solid #ea352d ;
+    z-index:100;
+    position: relative;
+    top:-595px;
+    &__inner{
+      transform: rotate(-45deg);
+      font-size: 30px;
+      margin:-30px 0px 0px -55px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  }

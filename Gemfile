@@ -83,6 +83,7 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'active_hash'
+gem 'payjp'
 gem 'ancestry'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -91,3 +92,5 @@ gem 'rails-i18n'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'

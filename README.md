@@ -13,7 +13,7 @@ has_many :items, dependent: :destroy
 has_many :comments, dependent: :destroy
 has_one :profile, dependent: :destroy
 has_one :sending_destination, dependent: :destroy
-has_one :credit_card, dependent: :destroy
+has_one :card, dependent: :destroy
 
 ## profilesテーブル
 
@@ -105,7 +105,7 @@ belongs_to :item
 belongs_to :user
 belongs_to :item
 
-## credit_cardsテーブル
+## cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
