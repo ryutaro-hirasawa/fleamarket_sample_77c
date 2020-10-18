@@ -316,12 +316,12 @@ img {
 .aBtn {
   width: 180px;
   &:hover {
-    filter: opacity(0.4);
+    transform: translateY(1px) translateX(1px),
   }
 }
 .gBtn {
   width: 180px;
   &:hover {
-    filter: opacity(0.4);
+    transform: translateY(1px) translateX(1px),
   }
 }

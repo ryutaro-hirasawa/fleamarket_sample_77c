@@ -33,6 +33,9 @@
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
+    &:hover {
+      filter: opacity(0.4);
+    }
   }
   p {
     font-size: 14px;

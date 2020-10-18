@@ -18,6 +18,9 @@
         img {
           width: 140px;
           display: block;
+          &:hover {
+            filter: opacity(0.4);
+          }
         }
       }
       .searchBox {
@@ -40,6 +43,9 @@
           cursor: pointer;
           padding: 8px;
           background-color: #3CCACE;
+          &:hover {
+            filter: opacity(0.4);
+          }
         }
       }
     }
