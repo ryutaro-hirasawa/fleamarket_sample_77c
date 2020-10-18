@@ -131,7 +131,7 @@
       width: 100%;
       margin: 0 auto;
       .subtitle {
-        font-size: 27px;
+        font-size: 40px;
         font-weight: bold;
         line-height: 1.4;
       }
@@ -315,7 +315,13 @@ img {
 
 .aBtn {
   width: 180px;
+  &:hover {
+    filter: opacity(0.4);
+  }
 }
 .gBtn {
   width: 180px;
+  &:hover {
+    filter: opacity(0.4);
+  }
 }

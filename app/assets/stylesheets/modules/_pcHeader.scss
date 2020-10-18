@@ -104,6 +104,9 @@
               a {
                 height: 0;
                 display: none;
+                &:hover {
+                  color: #ffd340;  
+                 } 
               }
               ul.listsLeft__category__children {
                 position: absolute;
@@ -127,6 +130,9 @@
                   a {
                     height: 0;
                     display: none;
+                    &:hover {
+                      color: #ffd340;  
+                     } 
                   }
                   ul.listsLeft__category__grandchildren {
                     position: absolute;
@@ -136,6 +142,9 @@
                       a {
                         height: 0;
                         display: none;
+                        &:hover {
+                          color: #ffd340;  
+                         } 
                       }
                     }
                   }
@@ -153,7 +162,22 @@
         display: flex;
         height: 2rem;
         justify-items: right;
-        .listsRight-mypage, .listsRight-logout, .listsRight-login, .listsRight-reg {
+        .listsRight-mypage {
+          color: #333;
+          padding: 0 0 0 16px;
+          a {
+            display: flex;
+            align-items: center;
+            color: #3CCACE;
+            text-decoration: none;
+            line-height: 40px;
+            font-size: 20px;
+            &:hover {
+              color: #ffd340;  
+             } 
+          }
+        }
+        .listsRight-logout, .listsRight-login, .listsRight-reg {
           color: #333;
           padding: 0 0 0 16px;
           a {
@@ -162,6 +186,9 @@
             color: #333;
             text-decoration: none;
             line-height: 40px;
+            &:hover {
+              color: #ffd340;  
+             } 
           }
         }
       }
