@@ -87,12 +87,15 @@
       .productHead
         =link_to "#" do
           %h3.title 新規投稿商品
-      - if user_signed_in?
         .productLists
           - @items.each do |item|
             .productList--body
               %span.images
+              - if user_signed_in?
                 = link_to "items/#{item.id}" do
+                  = image_tag item.images[0].src.url
+              - else
+                = link_to "/users/sign_in" do
                   = image_tag item.images[0].src.url
               %span.name
                 = item.name
