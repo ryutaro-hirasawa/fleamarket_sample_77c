@@ -93,9 +93,14 @@
               %span
                 (税込)
               %span
-                送料込み
-          .itemBox__purchase-Btn
-            = link_to "購入画面に進む", buy_item_purchases_path(item_id: @item.id), method: :get, class: "btn"
+          -if @item.purchases.present?
+            .items-box_photo__sold
+              .items-box_photo__sold__inner
+                SOLD
+          -else
+            - if @item.seller.id != current_user.id
+              .itemBox__purchase-Btn
+                = link_to "購入画面に進む", buy_item_purchases_path(item_id: @item.id), method: :get, class: "btn"
           .itemDetail
             =@item.introduction
           .table
