@@ -201,3 +201,64 @@
       font-weight: 600;
     }
   }
+
+  .search {
+    background-color: #f8f8f8;
+    height: 700px;
+    .search-left {
+      padding-top: 20px;
+    }
+    .productLists {
+      padding-top: 20px;
+    }
+  }
+
+  .search-container {
+    display: flex;
+    .search-left {
+    padding-left: 40px;
+    padding-right: 15px;
+    }
+    .detail_search_form {
+      border: solid 1px #000000;
+      height: 300px;
+      background-color: white;
+      .detail_search__title {
+        padding-top: 10px;
+        text-align: center;
+      }
+      .detail_search__group {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        .detail_search__group--label {
+          padding-bottom: 10px;
+          text-align: center;
+        }
+      }
+    }
+    #q_sorts {
+      width: 200px;
+    }
+
+    #q_name_cont {
+      text-align: center;
+      margin-left: 13px;
+    }
+    #q_price_gteq {
+      text-align: center;
+      margin-left: 13px;
+    }
+    #q_price_lteq {
+      text-align: center;
+      margin-left: 13px;
+    }
+    .productLists {
+      padding-right: 30px;
+    }
+  }
+
+  .nami {
+    text-align: center;
+  }
+
+  
