@@ -1,0 +1,22 @@
+= render "pcHeader"
+.search
+  .search-container
+    .search-left
+      = render 'detail_search_form.html'
+    .productLists
+      - @products.each do |item|
+        .productList--body
+          %span.imagesw
+            = link_to "/items/#{item.id}" do
+              = image_tag item.images[0].src.url
+          %span.name
+            = item.name
+          %span.price
+            = item.price
+            円（税込）
+            %i.fa.fa-star.likeIcon
+              = Favorite.where(item_id: item.id).count
+        %p
+= render "appBanner"
+= render "footer"
+= render "SellBtn"        

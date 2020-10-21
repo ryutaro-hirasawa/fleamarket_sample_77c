@@ -26,12 +26,12 @@
         %li.listsLeft__bland
           = link_to "#" do
             ブランド
+        %li.listsRight-logout
+          = link_to '詳細検索', detail_search_items_path
       %ul.listsRight
         - if user_signed_in?
           %li.listsRight-mypage
             = link_to 'マイページ', user_path(current_user)
-            -# = link_to  do
-            -#   マイページ
           %li.listsRight-logout
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else

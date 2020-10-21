@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
 
   before_action :category_parent_array, only: [:new, :create, :edit]
-  before_action :set_item, except: [:index, :new, :create, :category_children, :category_grandchildren, :search]
+  before_action :set_item, except: [:index, :new, :create, :category_children, :category_grandchildren, :search, :detail_search]
   before_action :show_all_instance, only: [:show, :edit, :destroy]
+  before_action :detail_search
 
   def index
     @item = Item.includes(:images).order('created_at DESC')
@@ -97,6 +98,12 @@ class ItemsController < ApplicationController
   def search
     @items = Item.search(params[:keyword])
   end
+
+  def detail_search
+    @search_product = Item.ransack(params[:q]) 
+    @products = @search_product.result
+  end
+
 
   private
 
