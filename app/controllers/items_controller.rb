@@ -31,6 +31,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @category_parent =  Category.where("ancestry is null")
+    @category_children = Category.new(params[:category_id])
+    @category_grandchildren = Category.new(params[:category_id])
   
     if @item.valid?
       @item.save
