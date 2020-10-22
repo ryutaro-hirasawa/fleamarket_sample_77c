@@ -7,6 +7,9 @@
   right: 32px;
   position: fixed;
   padding: 15px;
+  &:hover {
+    transform: translateY(1px) translateX(1px),
+  }
   .SellBtn__text {
     color: #fff;
     display: block;

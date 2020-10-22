@@ -1,7 +1,6 @@
 .main {
   background: #f8f8f8;
   .mainVisual {
-    width: 1320px;
     height: 560px;
     background-image: image-url("bg-mainVisual-pict_pc.jpg");
     background-size: cover;
@@ -77,6 +76,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        span {
+          font-size: 30px;
+        }
         &__pict {
           position: relative;
           margin-bottom: 20px;
@@ -129,7 +131,7 @@
       width: 100%;
       margin: 0 auto;
       .subtitle {
-        font-size: 27px;
+        font-size: 40px;
         font-weight: bold;
         line-height: 1.4;
       }
@@ -224,10 +226,11 @@
         }
       }
       .productLists {
-        width: 780px;
+        max-width: 1140px;
         margin: 26px auto;
         display: flex;
-        justify-content: space-around;
+        // justify-content: space-around;
+        overflow: scroll;
         a {
           text-decoration: none;
           position: relative;
@@ -264,11 +267,11 @@
               }
             }
             .productList--body {
+              max-width: 188px;
               background-color: white;
               color: #333;
               padding: 16px;
               .name {
-                overflow: hidden;
                 line-height: 1.5;
                 font-size: 16px;
                 text-align: left;
@@ -279,6 +282,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
+                  font-weight: bold;
                   li > .fa {
                     display: inline-block;
                     font: normal normal normal 14px/1 FontAwesome;
@@ -311,7 +315,13 @@ img {
 
 .aBtn {
   width: 180px;
+  &:hover {
+    transform: translateY(1px) translateX(1px),
+  }
 }
 .gBtn {
   width: 180px;
+  &:hover {
+    transform: translateY(1px) translateX(1px),
+  }
 }
