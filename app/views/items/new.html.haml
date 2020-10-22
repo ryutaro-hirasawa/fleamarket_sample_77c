@@ -73,8 +73,13 @@
                   %span.sell-title__require
                     必須
               .sell-collection_select
-                = f.label :category, {class: 'sell-collection_select__label'} do
-                  = f.collection_select :category, @category_parent, :id, :name, {prompt: "選択して下さい"},{ class: 'sell-collection_select__input', id: 'category-select-parent'}
+                = f.label :category_id, {class: 'sell-collection_select__label'} do
+                  = f.collection_select :category_id, Category.roots, :id, :name, {include_blank: "選択して下さい", selected: @item&.category&.root&.id},{class: 'sell-collection_select__input', id: 'category-select-parent'}
+                  
+                - if @item.category.present?
+                  = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {include_blank: "選択して下さい", selected: @item&.category&.parent&.id},{class: 'sell-collection_select__input', id: 'category-select-children'}
+                  = f.collection_select :category_id, @item.category.siblings, :id, :name, {include_blank: "選択して下さい", selected: @item&.category&.id},{ class: 'sell-collection_select__input', id: 'category-select-grandchildren'}
+
               .error-messages#error-category
 
         .ItemEntry
