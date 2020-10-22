@@ -84,13 +84,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
+    # binding.pry
     if @item.destroy
       flash[:notice] = '削除完了しました'
       redirect_to root_path
+      # return
     else
+      # binding.pry
       flash.now[:alert] = '削除に失敗しました'
       redirect_to root_path
+      # render :show
+      # return
     end
   end
 

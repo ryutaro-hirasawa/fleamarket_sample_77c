@@ -18,7 +18,8 @@ class User < ApplicationRecord
   has_many :sns_credentials
   has_many :comments
   has_many :favorites, dependent: :destroy
-  has_many :favorites, through: :favorites, source: :item
+  # has_many :favorites, through: :favorites, source: :item
+  has_many :favorited_items, through: :favorites, source: "item"
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
