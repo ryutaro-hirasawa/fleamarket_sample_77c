@@ -1,22 +1,24 @@
 = render "pcHeader"
 .search
-  .search-container
-    .search-left
-      = render 'detail_search_form.html'
+  = render 'detail_search_form.html'
+  .searchResult
     .productLists
       - @products.each do |item|
-        .productList-search
-          %figure.productList--imges
-            = link_to "/items/#{item.id}" do
+        .productList
+          = link_to "/items/#{item.id}" do
+            %figure.productList--img
               = image_tag item.images[0].src.url
-          .productList--body  
-            %span.name
-              = item.name
-            %span.price
-              = item.price
-              円（税込）
-          %i.fa.fa-star.likeIcon
-            = Favorite.where(item_id: item.id).count
+            .productList--body
+              %h3.name
+                = item.name
+              .details
+                %ul
+                  %li
+                    = "#{item.price}" + "円"
+                  %li
+                    %i.fa.fa-star.likeIcon
+                      = Favorite.where(item_id: item.id).count
+                %p（税込）
 = render "appBanner"
 = render "footer"
 - if user_signed_in?
