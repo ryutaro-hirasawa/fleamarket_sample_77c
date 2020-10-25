@@ -5,18 +5,22 @@
       = render 'detail_search_form.html'
     .productLists
       - @products.each do |item|
-        .productList--body
-          %span.imagesw
+        .productList-search
+          %figure.productList--imges
             = link_to "/items/#{item.id}" do
               = image_tag item.images[0].src.url
-          %span.name
-            = item.name
-          %span.price
-            = item.price
-            円（税込）
-            %i.fa.fa-star.likeIcon
-              = Favorite.where(item_id: item.id).count
-        %p
+          .productList--body  
+            %span.name
+              = item.name
+            %span.price
+              = item.price
+              円（税込）
+          %i.fa.fa-star.likeIcon
+            = Favorite.where(item_id: item.id).count
 = render "appBanner"
 = render "footer"
-= render "SellBtn"        
+- if user_signed_in?
+  =link_to "/items/new" do
+    .SellBtn
+      %span.SellBtn__text 出品する
+      =image_tag "icon_camera.png", class:"SellBtn__icon" 
