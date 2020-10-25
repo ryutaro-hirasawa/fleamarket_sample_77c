@@ -7,14 +7,15 @@
         %h3 詳細検索
       .detail_search__group
         .detail_search__group--label
-          %p 商品名
-        = f.search_field :name_cont, placeholder: "例）ひまわり"
+          %p 商品名:
+        .detail_search__group--forms
+        = f.search_field :name_cont, placeholder: "  例）ひまわり"
       .detail_search__group
         .detail_search__group--label
-          %p 価格
+          %p 価格: 
         .detail_search__group--forms
-          = f.search_field :price_gteq, placeholder: "¥ Min"
+          = f.search_field :price_gteq, placeholder: "  ¥ Min"
           %p.nami 〜
-          = f.search_field :price_lteq, placeholder: "¥ Max"
+          = f.search_field :price_lteq, placeholder: "  ¥ Max"
       .detail_search__btns
-        = f.submit "完了"
+        = f.submit "検索"
