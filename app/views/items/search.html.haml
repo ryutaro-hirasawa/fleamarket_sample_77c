@@ -1,56 +1,20 @@
-.pcHeader
-  .headerInner
-    .mainHeader
-      %h1.icon
-        =link_to root_path do
-          =image_tag "logo.png"
-      .searchBox
-        = form_with url: search_items_path, local: true, method: :get, class: "searchBox__form" do |form|
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__form__input"
-          = button_tag type: "submit", class: "searchBox__form__btn" do
-            .searchBox__icon
-              = image_tag "icon-search 1.png", width:"19.72",height:"19.72"
-    .nav
-      %ul.listsLeft
-        %li.listsLeft__category
-          =link_to  "カテゴリー"
-          %ul.listsLeft__category__parents
-            %li
-              =link_to  "レディース"
-              %ul.listsLeft__category__children
-                %li
-                  =link_to  "トップス"
-                  %ul.listsLeft__category__grandchildren
-                    %li
-                      =link_to  "Tシャツ/カットソー(半袖/袖なし)"
-        %li.listsLeft__bland
-          = link_to "#" do
-            ブランド
-      %ul.listsRight
-        - if user_signed_in?
-          %li.listsRight-mypage
-            = link_to 'マイページ', user_path(current_user)
-            -# = link_to  do
-            -#   マイページ
-          %li.listsRight-logout
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-        - else
-          %li.listsRight-login
-            = link_to "/users/sign_in" do
-              ログイン
-          %li.listsRight-reg
-            = link_to "/users/sign_up" do
-              新規会員登録
-  .productLists
-  - @items.each do |item|
-    .productList--body
-      %span.images
-        = link_to "/items/#{item.id}" do
-          = image_tag item.images[0].src.url
-        %span.name
-          = item.name
-        %span.price
-          = item.price
-          円（税込）
-          %i.fa.fa-star.likeIcon
-            = Favorite.where(item_id: item.id).count
+.wrapper
+  = render "pcHeader"
+  .serchResult
+    .productLists
+      - @items.each do |item|
+        .productList
+          = link_to "/items/#{item.id}" do
+            %figure.productList--img
+              = image_tag item.images[0].src.url
+            .productList--body
+              %h3.name
+                = item.name
+              .details
+                %ul
+                  %li
+                    = "#{item.price}" + "円"
+                  %li
+                    %i.fa.fa-star.likeIcon
+                      = Favorite.where(item_id: item.id).count
+                %p（税込）
